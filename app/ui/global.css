@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --dark-purple: #220742;
+    --light-purple: #9d42af;
+    --very-light-purple: rgb(232, 200, 244);
+}
+
+a {
+    color: var(--light-purple);
+}
+
+a:hover {
+    color: var(--dark-purple);
+}
