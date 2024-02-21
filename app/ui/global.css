@@ -2,17 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-input[type='number'] {
-  -moz-appearance: textfield;
-  appearance: textfield;
+:root {
+    --dark-purple: #220742;
+    --light-purple: #9d42af;
+    --very-light-purple: rgb(232, 200, 244);
 }
 
-input[type='number']::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+a {
+    color: var(--light-purple);
 }
 
-input[type='number']::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+a:hover {
+    color: var(--dark-purple);
 }
