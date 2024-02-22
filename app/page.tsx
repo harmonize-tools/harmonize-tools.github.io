@@ -1,24 +1,31 @@
-import Link from 'next/link';
-import ProjectGrid from './ui/components/project-grid';
+import ProjectGrid from '@/app/ui/components/project-grid';
+import SideNav from '@/app/ui/structure/sidenav';
+import Menu from '@/app/ui/structure/menu';
 
 export default function Page() {
   return (
-    <main className="p-6">
-      <div className="flex flex-row justify-center items-center">
-        <Link
-          className="flex h-20 items-end justify-start rounded-md mt-10"
-          href="/"
-        >
-          <div className="w-48">
-            <img src="/harmonize-logo.png" className="md:block" alt="Harmonize logo"></img>
+    <main>
+      <div className="min-flex-col flex p-6">
+        <div className="flex flex-col md:flex-row md:overflow-hidden">
+          <div className="w-full flex-none md:w-64">
+            <SideNav />
           </div>
-        </Link>
+          <div className="flex-grow md:p-12 md:p-6">
+            <Menu></Menu>
+            <h1 className="mb-2 mt-6 text-3xl font-semibold md:mt-0">
+              All toolkits
+            </h1>
+            <p className="text-justify text-l text-gray-500">
+              Exercitation consequat esse elit officia ullamco ut. Ea tempor
+              eiusmod irure dolore cillum mollit ea irure culpa amet nisi
+              mollit. Id esse esse eu est tempor. Et magna qui Lorem incididunt
+              do qui anim cupidatat qui elit voluptate magna consequat. Lorem et
+              amet dolore consequat aliqua excepteur est id eu sit consequat.
+            </p>
+            <ProjectGrid></ProjectGrid>
+          </div>
         </div>
-      <div className="ml-3 md-2 md:ml-40 md:mr-40 mt-10">
-        <h1 className="font-semibold text-3xl mb-2">All projects</h1>
-        <p className="text-gray-500 text-l text-justify">Exercitation consequat esse elit officia ullamco ut. Ea tempor eiusmod irure dolore cillum mollit ea irure culpa amet nisi mollit. Id esse esse eu est tempor. Et magna qui Lorem incididunt do qui anim cupidatat qui elit voluptate magna consequat. Lorem et amet dolore consequat aliqua excepteur est id eu sit consequat.</p>
       </div>
-      <ProjectGrid></ProjectGrid>
     </main>
   );
 }
