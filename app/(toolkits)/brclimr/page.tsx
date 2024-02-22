@@ -116,14 +116,14 @@ export default function Page({
         <h2 className="mb-3 text-2xl font-medium">Installation</h2>
         <h3 className="mb-3 text-xl">Stable version</h3>
         <div className="downlit mb-2 mt-2 rounded-lg bg-gray-200 p-2 text-l">
-          install.packages("brclimr")
+          install.packages(&quot;brclimr&quot;)
         </div>
         <div className="mb-2 rounded-lg bg-gray-200 p-2 text-l">
-          remotes::install_github(repo = "rfsaldanha/brclimr")
+          remotes::install_github(repo = &quot;rfsaldanha/brclimr&quot;)
         </div>
         <h3 className="mb-3 text-xl">Development version</h3>
         <div className="mb-2 mt-2 rounded-lg bg-gray-200 p-2 text-l">
-          remotes::install_github(repo = "rfsaldanha/brclimr", ref = "duckdb")
+          remotes::install_github(repo = &quot;rfsaldanha/brclimr&quot;, ref = &quot;duckdb&quot;)
         </div>
         <p className="mb-3 text-l">
           Note: the stable version adopted a universal solution for querying

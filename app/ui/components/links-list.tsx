@@ -5,7 +5,7 @@ export default function LinksList({ links }: { links: any }) {
     <>
       {links.map((link: any) => {
         return (
-          <div className="mb-2">
+          <div key={link.id} className="mb-2">
             <Link href={link.link}>{link.text}</Link>
           </div>
         );

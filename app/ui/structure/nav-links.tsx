@@ -38,6 +38,7 @@ export default function NavLinks() {
             className="flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-very-light-purple hover:text-dark-purple md:flex-none md:justify-start md:p-2 md:px-3"
           >
             <img className="w-10" src={link.icon}></img>
+            
             <p className="hidden text-base md:block">{link.name}</p>
           </a>
         );
