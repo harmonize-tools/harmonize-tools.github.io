@@ -7,7 +7,7 @@ const links = [
   {
     name: 'Dataset descriptions',
     href: '/dataset-descriptions',
-    icon: '/icons/insect.svg',
+    icon: '/icons/dataset-descriptions.svg',
   },
   {
     name: 'Data sources list',
