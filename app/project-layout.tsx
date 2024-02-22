@@ -19,12 +19,12 @@ export default function ProjectLayout({
 }) {
   return (
     <>
-    <div className="min-flex-col flex h-full p-6">
+    <div className="flex h-full w-full p-6">
       <div className="flex flex-col md:flex-row md:overflow-hidden">
         <div className="w-full flex-none md:w-64">
           <SideNav />
         </div>
-        <div className="md:p-12 md:p-6">
+        <div className="md:p-12 md:p-6 grow">
           <Menu></Menu>
           <div className="grid grid-cols-none md:grid-cols-4">
             <div className="md:col-span-3">

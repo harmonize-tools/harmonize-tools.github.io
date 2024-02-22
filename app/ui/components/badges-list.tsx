@@ -4,6 +4,7 @@ export default function BadgesList({ badges }: { badges: any }) {
         {badges.map((badge: any) => {
           return (
             <img
+                key={badge.id}
                 className={badge.classname}
                 src={badge.src}
                 alt={badge.alt}

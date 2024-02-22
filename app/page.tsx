@@ -1,6 +1,49 @@
-import ProjectGrid from '@/app/ui/components/project-grid';
+import ProjectsGrid from '@/app/ui/components/projects-grid';
 import SideNav from '@/app/ui/structure/sidenav';
 import Menu from '@/app/ui/structure/menu';
+
+const projects = [
+  {
+    name: 'Dataset descriptions',
+    description: 'Live spreadsheet with data sources description and metadata',
+    src: '/cards/insects.jpg',
+    link: '/dataset-descriptions'
+  },
+  {
+    name: 'Data sources list',
+    description:
+      'Simplified version of the live spreadsheet for the Harmonize website',
+    src: '/cards/insects.jpg',
+    link: 'data-sources-list'
+  },
+  {
+    name: 'Health data questionnaire',
+    description:
+      'Digital questionnaire aimed at collecting health data sources and metadata',
+    src: '/cards/insects.jpg',
+    link: 'health-data-questionnaire'
+  },
+  {
+    name: 'clim4health',
+    description: 'Aggregate climate data to admin level',
+    src: '/cards/insects.jpg',
+    link: '/clim4health',
+  },
+  {
+    name: 'Health data tool',
+    description:
+      'A generalised tool to access health data from multiple countries',
+    src: '/cards/insects.jpg',
+    link: '/health-data-tool'
+  },
+  {
+    name: 'brclimr',
+    description:
+      'R package to retrieve zonal statistics from weather indicators that were calculated for each municipality in Brazil',
+    src: '/cards/insects.jpg',
+    link: '/brclimr'
+  },
+]
 
 export default function Page() {
   return (
@@ -22,7 +65,7 @@ export default function Page() {
               do qui anim cupidatat qui elit voluptate magna consequat. Lorem et
               amet dolore consequat aliqua excepteur est id eu sit consequat.
             </p>
-            <ProjectGrid></ProjectGrid>
+            <ProjectsGrid projects={projects}></ProjectsGrid>
           </div>
         </div>
       </div>

@@ -3,7 +3,7 @@ export default function AuthorsList({ authors }: { authors: any }) {
     <>
       {authors.map((author: any) => {
         return (
-          <div className="mb-2">
+          <div key={author.id} className="mb-2">
             <p className="text-gray">{author.name}</p>
             <p className="text-gray-600">{author.position}</p>
           </div>

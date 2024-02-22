@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function Page() {
   return (
     <main>
@@ -38,8 +40,13 @@ export default function Page() {
         settings.
       </p>
       <br></br>
-      <div className="flex justify-center items-center">
-        <img className="w-4/6" src="/harmonize-about-the-project.png"></img>
+      <div className="flex items-center justify-center">
+        <Image
+          src="/harmonize-about-the-project.png"
+          width={900}
+          height={800}
+          alt="About the project"
+        ></Image>
       </div>
       <br></br>
       <p>
