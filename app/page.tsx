@@ -4,6 +4,13 @@ import Menu from '@/app/ui/structure/menu';
 
 const projects = [
   {
+    name: 'brclimr',
+    description:
+      'R package to retrieve zonal statistics from weather indicators that were calculated for each municipality in Brazil',
+    src: '/cards/insects.jpg',
+    link: '/brclimr'
+  },
+  {
     name: 'Dataset descriptions',
     description: 'Live spreadsheet with data sources description and metadata',
     src: '/cards/insects.jpg',
@@ -35,14 +42,7 @@ const projects = [
       'A generalised tool to access health data from multiple countries',
     src: '/cards/insects.jpg',
     link: '/health-data-tool'
-  },
-  {
-    name: 'brclimr',
-    description:
-      'R package to retrieve zonal statistics from weather indicators that were calculated for each municipality in Brazil',
-    src: '/cards/insects.jpg',
-    link: '/brclimr'
-  },
+  }
 ]
 
 export default function Page() {
