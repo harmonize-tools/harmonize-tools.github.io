@@ -1,5 +1,4 @@
 import '@/app/ui/global.css';
-import SideNav from '@/app/ui/sidenav';
 
 export default function RootLayout({
   children,
@@ -10,7 +9,7 @@ export default function RootLayout({
     <html lang="en">
       <body>{children}</body>
       <footer>
-        <div className='h-36 bg-dark-purple text-white text-base flex justify-evenly items-center'>
+        <div className="flex h-36 items-center justify-evenly bg-dark-purple text-base text-white">
           <div>© 2024 BSC HARMONIZE All Rights Reserved</div>
         </div>
       </footer>
