@@ -1,3 +1,7 @@
+'use client';
+import { usePathname } from 'next/navigation'
+import Link from 'next/link';
+
 const links = [
   {
     name: 'brclimr',
@@ -31,16 +35,25 @@ export default function NavLinks() {
   return (
     <>
       {links.map((link) => {
+        let color;
+        const pathname = usePathname();
+        const href = link.href + '/';
+        if (pathname == href) {
+          color = "var(--very-light-purple)";
+        } else {
+          color = "#f6f6f6";
+        }
         return (
-          <a
+          <Link
             key={link.name}
             href={link.href}
-            className="flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-very-light-purple hover:text-dark-purple md:flex-none md:justify-start md:p-2 md:px-3"
+            style={{backgroundColor: `${color}`}}
+            className="flex h-[48px] grow items-center justify-center gap-2 rounded-md p-3 text-sm font-medium hover:bg-very-light-purple hover:text-dark-purple md:flex-none md:justify-start md:p-2 md:px-3"
           >
             <img className="w-10" src={link.icon}></img>
             
             <p className="hidden text-base md:block">{link.name}</p>
-          </a>
+          </Link>
         );
       })}
     </>
