@@ -19,17 +19,14 @@ export default function ProjectLayout({
 }) {
   return (
     <>
-    <div className="flex h-full w-full p-6">
-      <div className="flex flex-col md:flex-row md:overflow-hidden">
-        <div className="w-full flex-none md:w-64">
+      <div className="flex flex-col md:flex-row">
+        <aside className="w-full flex-none p-6 md:sticky md:top-0 md:h-screen md:w-64">
           <SideNav />
-        </div>
-        <div className="md:p-12 md:p-6 grow">
+        </aside>
+        <div className="w-screen grow p-6 md:p-12 md:p-6">
           <Menu></Menu>
-          <div className="grid grid-cols-none md:grid-cols-4">
-            <div className="md:col-span-3">
-              {children}
-            </div>
+          <div className="grid grid-cols-none md:grid-cols-5">
+            <div className="md:col-span-4">{children}</div>
             <SideBar
               links={links}
               licenses={licenses}
@@ -40,7 +37,6 @@ export default function ProjectLayout({
           </div>
         </div>
       </div>
-    </div>
     </>
-  )
+  );
 }

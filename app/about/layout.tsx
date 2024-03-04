@@ -7,15 +7,13 @@ export default function ProjectLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-flex-col flex h-full p-6">
-      <div className="flex flex-col md:flex-row md:overflow-hidden">
-        <div className="w-full flex-none md:w-64">
-          <SideNav />
-        </div>
-        <div className="w-screen md:p-12 md:p-6">
-          <Menu></Menu>
-          {children}
-        </div>
+    <div className="flex flex-col md:flex-row">
+      <aside className="w-full flex-none p-6 md:sticky md:top-0 md:h-screen md:w-64">
+        <SideNav />
+      </aside>
+      <div className="w-screen grow p-6 md:p-12 md:p-6">
+        <Menu></Menu>
+        {children}
       </div>
     </div>
   );

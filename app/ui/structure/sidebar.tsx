@@ -16,7 +16,7 @@ export default function SideBar({
   badges: any;
 }) {
   return (
-    <div className="md:col-span-1 md:ml-10 md:mt-14 bg-very-light-purple p-4 rounded-lg">
+    <div className="md:col-span-1 md:ml-10 md:mt-14 p-4 rounded-lg">
       <h2 className="mb-1 text-l font-medium">Links</h2>
       <LinksList links={links}></LinksList>
       <h2 className="mb-1 text-l font-medium">License</h2>

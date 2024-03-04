@@ -1,5 +1,5 @@
 'use client';
-import { usePathname } from 'next/navigation'
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 
 const links = [
@@ -11,7 +11,7 @@ const links = [
   {
     name: 'Dataset descriptions',
     href: '/dataset-descriptions',
-    icon: '/icons/dataset-descriptions.svg',
+    icon: '/icons/insect.svg',
   },
   {
     name: 'Data sources list',
@@ -39,19 +39,19 @@ export default function NavLinks() {
         const pathname = usePathname();
         const href = link.href + '/';
         if (pathname == href) {
-          color = "var(--very-light-purple)";
+          color = 'var(--very-light-purple)';
         } else {
-          color = "#f6f6f6";
+          color = '#f6f6f6';
         }
         return (
           <Link
             key={link.name}
             href={link.href}
-            style={{backgroundColor: `${color}`}}
+            style={{ backgroundColor: `${color}` }}
             className="flex h-[48px] grow items-center justify-center gap-2 rounded-md p-3 text-sm font-medium hover:bg-very-light-purple hover:text-dark-purple md:flex-none md:justify-start md:p-2 md:px-3"
           >
             <img className="w-10" src={link.icon}></img>
-            
+
             <p className="hidden text-base md:block">{link.name}</p>
           </Link>
         );

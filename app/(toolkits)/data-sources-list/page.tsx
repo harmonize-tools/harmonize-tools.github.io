@@ -1,6 +1,11 @@
 'use client';
 
+import Image from 'next/image';
+import Link from 'next/link';
+
 import ProjectLayout from '@/app/project-layout';
+import Code from '@/app/ui/components/code';
+
 
 const links = [
   {

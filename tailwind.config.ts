@@ -17,7 +17,7 @@ const config: Config = {
     },
     extend: {
       gridTemplateColumns: {
-        '13': 'repeat(13, minmax(0, 1fr))',
+        'code-copy-grid': '1fr auto',
       },
       colors: {
         'dark-purple': 'var(--dark-purple)',
