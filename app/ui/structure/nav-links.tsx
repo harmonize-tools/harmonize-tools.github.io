@@ -32,11 +32,11 @@ const links = [
 ];
 
 export default function NavLinks() {
+  const pathname = usePathname();  
   return (
     <>
       {links.map((link) => {
         let color;
-        const pathname = usePathname();
         const href = link.href + '/';
         if (pathname == href) {
           color = 'var(--very-light-purple)';
