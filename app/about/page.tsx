@@ -42,7 +42,7 @@ export default function Page() {
       <br></br>
       <div className="flex items-center justify-center">
         <Image
-          src="/harmonize-about-the-project.png"
+          src="./harmonize-about-the-project.png"
           width={900}
           height={800}
           alt="About the project"

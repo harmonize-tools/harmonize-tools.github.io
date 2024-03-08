@@ -7,40 +7,40 @@ const projects = [
     name: 'brclimr',
     description:
       'R package to retrieve zonal statistics from weather indicators that were calculated for each municipality in Brazil',
-    src: '/cards/insects.jpg',
+    src: './cards/insects.jpg',
     link: '/brclimr',
   },
   {
     name: 'Dataset descriptions',
     description: 'Live spreadsheet with data sources description and metadata',
-    src: '/cards/insects.jpg',
+    src: './cards/insects.jpg',
     link: '/dataset-descriptions',
   },
   {
     name: 'Data sources list',
     description:
       'Simplified version of the live spreadsheet for the Harmonize website',
-    src: '/cards/insects.jpg',
+    src: './cards/insects.jpg',
     link: 'data-sources-list',
   },
   {
     name: 'Health data questionnaire',
     description:
       'Digital questionnaire aimed at collecting health data sources and metadata',
-    src: '/cards/insects.jpg',
+    src: './cards/insects.jpg',
     link: 'health-data-questionnaire',
   },
   {
     name: 'clim4health',
     description: 'Aggregate climate data to admin level',
-    src: '/cards/insects.jpg',
+    src: './cards/insects.jpg',
     link: '/clim4health',
   },
   {
     name: 'Health data tool',
     description:
       'A generalised tool to access health data from multiple countries',
-    src: '/cards/insects.jpg',
+    src: './cards/insects.jpg',
     link: '/health-data-tool',
   },
 ];

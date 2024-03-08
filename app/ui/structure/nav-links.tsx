@@ -6,28 +6,31 @@ const links = [
   {
     name: 'brclimr',
     href: '/brclimr',
-    icon: '/icons/insect.svg',
+    icon: './icons/insect.svg',
   },
   {
     name: 'Dataset descriptions',
     href: '/dataset-descriptions',
-    icon: '/icons/insect.svg',
+    icon: './icons/insect.svg',
   },
   {
     name: 'Data sources list',
     href: '/data-sources-list',
-    icon: '/icons/insect.svg',
+    icon: './icons/insect.svg',
   },
   {
     name: 'Health data questionnaire',
     href: '/health-data-questionnaire',
-    icon: '/icons/insect.svg',
+    icon: './icons/insect.svg',
   },
-  { name: 'clim4health', href: '/clim4health', icon: '/icons/insect.svg' },
+  { 
+    name: 'clim4health', 
+    href: '/clim4health', 
+    icon: './icons/insect.svg' },
   {
     name: 'Health data tool',
     href: '/health-data-tool',
-    icon: '/icons/insect.svg',
+    icon: './icons/insect.svg',
   },
 ];
 

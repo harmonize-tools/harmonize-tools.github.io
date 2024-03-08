@@ -241,7 +241,7 @@ ggplot(data = rbind(tmax, tmin), aes(x = date, y = value, color = name)) +
         ></Code>
         <div className="flex items-center justify-center">
           <Image
-            src="/toolkits/brclimr/nova-friburgo-temperature-example.png"
+            src="./toolkits/brclimr/nova-friburgo-temperature-example.png"
             width={900}
             height={800}
             alt="Nova Friburgo temperature example"
@@ -264,7 +264,7 @@ ggplot(data = rbind(tmax, tmin), aes(x = date, y = value, color = name)) +
         ></Code>
         <div className="flex items-center justify-center">
           <Image
-            src="/toolkits/brclimr/nova-friburgo-precipitation-example.png"
+            src="./toolkits/brclimr/nova-friburgo-precipitation-example.png"
             width={900}
             height={800}
             alt="Nova Friburgo precipitation example"
