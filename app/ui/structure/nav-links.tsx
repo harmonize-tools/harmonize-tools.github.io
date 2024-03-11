@@ -1,47 +1,56 @@
 'use client';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
+import {
+  SunIcon,
+  DocumentTextIcon,
+  ListBulletIcon,
+  QuestionMarkCircleIcon,
+  HeartIcon,
+  DocumentChartBarIcon,
+} from '@heroicons/react/24/outline';
 
 const links = [
   {
     name: 'brclimr',
     href: '/brclimr',
-    icon: './icons/archive.svg',
+    icon: SunIcon,
   },
   {
     name: 'Dataset descriptions',
     href: '/dataset-descriptions',
-    icon: './icons/document-text.svg',
+    icon: DocumentTextIcon,
   },
   {
     name: 'Data sources list',
     href: '/data-sources-list',
-    icon: './icons/table.svg',
+    icon: ListBulletIcon,
   },
   {
     name: 'Health data questionnaire',
     href: '/health-data-questionnaire',
-    icon: './icons/question-mark-circle.svg',
+    icon: QuestionMarkCircleIcon,
   },
-  { 
-    name: 'clim4health', 
-    href: '/clim4health', 
-    icon: './icons/document-report.svg' 
+  {
+    name: 'clim4health',
+    href: '/clim4health',
+    icon: DocumentChartBarIcon,
   },
   {
     name: 'Health data tool',
     href: '/health-data-tool',
-    icon: '/icons/heart.svg',
+    icon: HeartIcon,
   },
 ];
 
 export default function NavLinks() {
-  const pathname = usePathname();  
+  const pathname = usePathname();
   return (
     <>
       {links.map((link) => {
         let color;
         const href = link.href;
+        const LinkIcon = link.icon;
         if (pathname == href) {
           color = 'var(--very-light-purple)';
         } else {
@@ -52,10 +61,9 @@ export default function NavLinks() {
             key={link.name}
             href={link.href}
             style={{ backgroundColor: `${color}` }}
-            className="flex h-[48px] grow items-center justify-center gap-2 rounded-md p-3 text-sm font-medium hover:bg-very-light-purple hover:text-dark-purple md:flex-none md:justify-start md:p-2 md:px-3"
+            className="tab flex h-[48px] grow items-center justify-center gap-2 rounded-md p-3 text-sm font-medium hover:text-dark-purple md:flex-none md:justify-start md:p-2 md:px-3"
           >
-            <img className="w-8" src={link.icon}></img>
-
+            <LinkIcon className="w-8" />
             <p className="hidden text-base md:block">{link.name}</p>
           </Link>
         );

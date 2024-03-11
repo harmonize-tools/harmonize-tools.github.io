@@ -5,7 +5,7 @@
 :root {
     --dark-purple: #220742;
     --light-purple: #9d42af;
-    --very-light-purple: rgb(250, 236, 255);
+    --very-light-purple: #faecff;
     --dark-blue: #16102F;
 }
 
@@ -38,4 +38,12 @@ a:hover {
 .project p {
     margin-bottom: 0.75rem;
     font-size: 1.15rem;
+}
+
+.tab:hover {
+    background-color: var(--very-light-purple) !important;
+}
+
+svg:hover {
+    stroke: var(--dark-purple);
 }
