@@ -10,7 +10,7 @@ export default function SideNav() {
       >
         <div className="w-48">
           <img
-            src="/harmonize-logo.png"
+            src="./harmonize-logo.png"
             className="md:block"
             alt="Harmonize logo"
           ></img>

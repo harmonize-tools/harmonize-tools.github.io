@@ -16,3 +16,26 @@ a {
 a:hover {
     color: var(--dark-purple);
 }
+
+.project h1 {
+    margin-bottom: 1rem;
+    font-size: 1.953rem;
+    font-weight: 500;
+}
+
+.project h2 {
+    margin-bottom: 0.75rem;
+    font-size: 1.563rem;
+    font-weight: 500;
+}
+
+.project h3 {
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.project p {
+    margin-bottom: 0.75rem;
+    font-size: 1.15rem;
+}
