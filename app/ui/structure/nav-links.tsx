@@ -6,24 +6,28 @@ const links = [
   {
     name: 'brclimr',
     href: '/brclimr',
-    icon: '/icons/archive.svg',
+    icon: './icons/archive.svg',
   },
   {
     name: 'Dataset descriptions',
     href: '/dataset-descriptions',
-    icon: '/icons/document-text.svg',
+    icon: './icons/document-text.svg',
   },
   {
     name: 'Data sources list',
     href: '/data-sources-list',
-    icon: '/icons/table.svg',
+    icon: './icons/table.svg',
   },
   {
     name: 'Health data questionnaire',
     href: '/health-data-questionnaire',
-    icon: '/icons/question-mark-circle.svg',
+    icon: './icons/question-mark-circle.svg',
   },
-  { name: 'clim4health', href: '/clim4health', icon: '/icons/document-report.svg' },
+  { 
+    name: 'clim4health', 
+    href: '/clim4health', 
+    icon: './icons/document-report.svg' 
+  },
   {
     name: 'Health data tool',
     href: '/health-data-tool',
@@ -37,7 +41,7 @@ export default function NavLinks() {
     <>
       {links.map((link) => {
         let color;
-        const href = link.href + '/';
+        const href = link.href;
         if (pathname == href) {
           color = 'var(--very-light-purple)';
         } else {

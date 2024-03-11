@@ -23,6 +23,7 @@ const config: Config = {
         'dark-purple': 'var(--dark-purple)',
         'light-purple': 'var(--light-purple)',
         'very-light-purple': 'var(--very-light-purple)',
+        'dark-blue': 'var(--dark-blue)'
       },
     },
     keyframes: {
