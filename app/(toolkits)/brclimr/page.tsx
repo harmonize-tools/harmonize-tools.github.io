@@ -102,13 +102,13 @@ export default function Page({
       badges={badges}
     >
       <main>
-        <h1 className="mb-4 text-3xl font-medium">brclimr</h1>
-        <p className="mb-3 text-l">
+        <h1>brclimr</h1>
+        <p>
           This R package retrieves zonal statistics from weather indicators that
           were calculated for each municipality in Brazil using data from the
           BR-DWGD and TerraClimate projects.
         </p>
-        <p className="mb-3 text-l">
+        <p>
           Zonal statistics such as mean, maximum, minimum, standard deviation,
           and sum were computed by taking into account the data cells that
           intersect the boundaries of each municipality and stored in Parquet
@@ -118,23 +118,23 @@ export default function Page({
           This package queries on-line the already calculated statistics on the
           Parquet files and returns easy-to-use data.frames.
         </p>
-        <p className="mb-3 text-l">
+        <p>
           Details about the used methodology to calculate the zonal statistics
           are available at Articles &gt; Methodology.
         </p>
-        <h2 className="mb-3 text-2xl font-medium">Installation</h2>
-        <h3 className="mb-3 text-xl font-medium">Stable version</h3>
+        <h2>Installation</h2>
+        <h3>Stable version</h3>
         <Code language="r" text={`install.packages("brclimr")`}></Code>
         <Code
           language="r"
           text={`remotes::install_github(repo = "rfsaldanha/brclimr")`}
         ></Code>
-        <h3 className="mb-3 text-xl font-medium">Development version</h3>
+        <h3>Development version</h3>
         <Code
           language="r"
           text={`remotes::install_github(repo = "rfsaldanha/brclimr", ref = "duckdb")`}
         ></Code>
-        <p className="mb-3 text-l">
+        <p>
           Note: the stable version adopted a universal solution for querying
           Parquet files that works on all operating systems but it is slower. A
           development version is available for Linux and MacOS with a faster
@@ -144,8 +144,8 @@ export default function Page({
           </Link>
           .
         </p>
-        <h2 className="mb-3 text-2xl font-medium">Example</h2>
-        <p className="mb-3 text-l">
+        <h2>Example</h2>
+        <p>
           To fetch data for a specific product, indicator and statistic, use the
           fetch_data function. For example: Rio de Janeiro, RJ (IBGE code number
           3304557), data product “brdwgd”, average relative humidity, from
@@ -169,13 +169,13 @@ fetch_data(
 #> 5 2010-10-19  74.3
 #> 6 2010-10-20  71.5`}
         ></Code>
-        <p className="mb-3 text-l">
+        <p>
           If you need to query several municipalities, indicators and zonal
           statistics, we recommend to download and locally query the parquet
           files using the arrow package. A list of URLs of the parquet files
           created for this project is available at Articles &gt; Parquet files.
         </p>
-        <p className="mb-3 text-l">
+        <p>
           A list with the indicators and zonal statistics available by product
           can be retrieved with the function product_info.
         </p>
@@ -184,8 +184,8 @@ fetch_data(
           text={`product_info("brdwgd")
 product_info("terraclimate")`}
         ></Code>
-        <h2 className="mb-3 text-2xl font-medium">Another example</h2>
-        <p className="mb-3 text-l">
+        <h2>Another example</h2>
+        <p>
           To fetch data for a specific product, indicator and statistic, use the
           fetch_data function. For example: Rio de Janeiro, RJ (IBGE code number
           3304557), data product “brdwgd”, average relative humidity, from

@@ -26,7 +26,7 @@ export default function ProjectLayout({
         <div className="w-screen grow p-6 md:p-12 md:p-6">
           <Menu></Menu>
           <div className="grid grid-cols-none md:grid-cols-5">
-            <div className="md:col-span-4">{children}</div>
+            <div className="project md:col-span-4">{children}</div>
             <SideBar
               links={links}
               licenses={licenses}

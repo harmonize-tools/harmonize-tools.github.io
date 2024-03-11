@@ -57,8 +57,8 @@ export default function Page({
       badges={badges}
     >
       <main>
-        <h1 className="mb-4 text-3xl font-medium">Package name</h1>
-        <p className="mb-3 text-l">
+        <h1>Package name</h1>
+        <p>
           Package description
         </p>
       </main>
