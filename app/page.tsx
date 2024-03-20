@@ -7,7 +7,7 @@ const projects = [
     name: 'brclimr',
     description:
       'R package to retrieve zonal statistics from weather indicators that were calculated for each municipality in Brazil',
-    src: './cards/insects.jpg',
+    src: './cards/Logo-example.png',
     link: '/brclimr',
   },
   {
@@ -27,7 +27,7 @@ const projects = [
     name: 'Health data questionnaire',
     description:
       'Digital questionnaire aimed at collecting health data sources and metadata',
-    src: './cards/insects.jpg',
+    src: './cards/HealthQuestionaire.svg',
     link: 'health-data-questionnaire',
   },
   {
@@ -40,7 +40,7 @@ const projects = [
     name: 'Health data tool',
     description:
       'A generalised tool to access health data from multiple countries',
-    src: './cards/insects.jpg',
+    src: './cards/DataTool.svg',
     link: '/health-data-tool',
   },
 ];
