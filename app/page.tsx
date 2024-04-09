@@ -33,7 +33,7 @@ const projects = [
   {
     name: 'clim4health',
     description: 'Aggregate climate data to admin level',
-    src: './cards/insects.jpg',
+    src: '.public/cards/climate_for_health.svg',
     link: '/clim4health',
   },
   {
