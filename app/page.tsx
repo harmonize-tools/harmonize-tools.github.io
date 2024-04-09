@@ -20,7 +20,7 @@ const projects = [
     name: 'Data sources list',
     description:
       'Simplified version of the live spreadsheet for the Harmonize website',
-    src: './cards/data_source_list.svg',
+    src: '.public/cards/data_source_list.svg',
     link: 'data-sources-list',
   },
   {
