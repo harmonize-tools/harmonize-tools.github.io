@@ -13,7 +13,7 @@ const projects = [
   {
     name: 'Dataset descriptions',
     description: 'Live spreadsheet with data sources description and metadata',
-    src: './cards/insects.jpg',
+    src: './cards/dataset_descriptions.jpg',
     link: '/dataset-descriptions',
   },
   {
