@@ -13,14 +13,14 @@ const projects = [
   {
     name: 'Dataset descriptions',
     description: 'Live spreadsheet with data sources description and metadata',
-    src: '.public/cards/dataset_descriptions.svg',
+    src: './cards/dataset_descriptions.svg',
     link: '/dataset-descriptions',
   },
   {
     name: 'Data sources list',
     description:
       'Simplified version of the live spreadsheet for the Harmonize website',
-    src: '.public/cards/data_source_list.svg',
+    src: './cards/data_source_list.svg',
     link: 'data-sources-list',
   },
   {
@@ -33,7 +33,7 @@ const projects = [
   {
     name: 'clim4health',
     description: 'Aggregate climate data to admin level',
-    src: '.public/cards/climate_for_health.svg',
+    src: './cards/climate_for_health.svg',
     link: '/clim4health',
   },
   {
