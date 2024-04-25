@@ -4,40 +4,40 @@ import Menu from '@/app/ui/structure/menu';
 
 const projects = [
   {
-    name: 'brclimr',
+    name: 'Climate4Health',
     description:
       'R package to retrieve zonal statistics from weather indicators that were calculated for each municipality in Brazil',
     src: './cards/Logo-example.png',
     link: '/brclimr',
   },
   {
-    name: 'Dataset descriptions',
+    name: 'Land4Health',
     description: 'Live spreadsheet with data sources description and metadata',
     src: './cards/dataset_descriptions.svg',
     link: '/dataset-descriptions',
   },
   {
-    name: 'Data sources list',
+    name: 'Drone4Health',
     description:
       'Simplified version of the live spreadsheet for the Harmonize website',
     src: './cards/dataSourceList.svg',
     link: 'data-sources-list',
   },
   {
-    name: 'Health data questionnaire',
+    name: 'Data4Health',
     description:
       'Digital questionnaire aimed at collecting health data sources and metadata',
     src: './cards/HealthQuestionaire.svg',
     link: 'health-data-questionnaire',
   },
   {
-    name: 'clim4health',
+    name: 'Social4Health',
     description: 'Aggregate climate data to admin level',
     src: './cards/climateforhealth.svg',
     link: '/clim4health',
   },
   {
-    name: 'Health data tool',
+    name: 'FixShape',
     description:
       'A generalised tool to access health data from multiple countries',
     src: './cards/DataTool.svg',
