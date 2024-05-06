@@ -2,48 +2,7 @@ import ProjectsGrid from '@/app/ui/components/projects-grid';
 import SideNav from '@/app/ui/structure/sidenav';
 import Menu from '@/app/ui/structure/menu';
 
-const projects = [
-  {
-    name: 'Climate4Health',
-    description:
-      'R package to retrieve zonal statistics from weather indicators that were calculated for each municipality in Brazil',
-    src: './cards/Logo-example.png',
-    link: '/brclimr',
-  },
-  {
-    name: 'Land4Health',
-    description: 'Live spreadsheet with data sources description and metadata',
-    src: './cards/dataset_descriptions.svg',
-    link: '/dataset-descriptions',
-  },
-  {
-    name: 'Drone4Health',
-    description:
-      'Simplified version of the live spreadsheet for the Harmonize website',
-    src: './cards/dataSourceList.svg',
-    link: 'data-sources-list',
-  },
-  {
-    name: 'Data4Health',
-    description:
-      'Digital questionnaire aimed at collecting health data sources and metadata',
-    src: './cards/HealthQuestionaire.svg',
-    link: 'health-data-questionnaire',
-  },
-  {
-    name: 'Social4Health',
-    description: 'Aggregate climate data to admin level',
-    src: './cards/climateforhealth.svg',
-    link: '/clim4health',
-  },
-  {
-    name: 'FixShape',
-    description:
-      'A generalised tool to access health data from multiple countries',
-    src: './cards/DataTool.svg',
-    link: '/health-data-tool',
-  },
-];
+const projects = require('../public/config.json');
 
 export default function Page() {
   return (
@@ -58,11 +17,11 @@ export default function Page() {
             All toolkits
           </h1>
           <p className="text-justify text-l text-gray-500">
-            Exercitation consequat esse elit officia ullamco ut. Ea tempor
-            eiusmod irure dolore cillum mollit ea irure culpa amet nisi mollit.
-            Id esse esse eu est tempor. Et magna qui Lorem incididunt do qui
-            anim cupidatat qui elit voluptate magna consequat. Lorem et amet
-            dolore consequat aliqua excepteur est id eu sit consequat.
+            Explore different R and python libraries tailored for health, climate, and socioeconomic analysis, 
+            offering robust statistical methods, data visualization tools, and predictive modeling capabilities to 
+            address complex challenges in these domains.
+            <br></br>
+            Also It includes a template dashboard using all this tools for the different data generated.
           </p>
           <ProjectsGrid projects={projects}></ProjectsGrid>
         </div>
