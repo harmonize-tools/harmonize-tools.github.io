@@ -270,7 +270,7 @@ var main = () => {
   (async () => {
     // Clone the repositories
     const data = await executeUrl(url);
-    // await cloneGithubRepositories(data)
+    await cloneGithubRepositories(data)
 
     // Transform READMEs into htmls
     listAndExecutePythonCode()
