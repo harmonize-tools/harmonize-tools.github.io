@@ -1,19 +1,22 @@
 const { exec } = require('node:child_process')
 const path     = require('path');
 const fs       = require('fs');
-
+const util     = require('util');
 
 /*
 */
 var deleteUnnecesaryFiles = async(dest_path, name) => {
-  const dest_path_aux = dest_path.replace(/\\/g, '/');
+  return new Promise((resolve, reject) => {
+    const dest_path_aux = dest_path.replace(/\\/g, '/');
 
-  fs.readdirSync(dest_path_aux).forEach(file => {
-    if (!file.includes(name)) {
-      fs.rmSync(path.join(dest_path_aux, file), { recursive: true }, err => {
-       
-      });
-    }
+    fs.readdirSync(dest_path_aux).forEach(file => {
+      if (!file.includes(name)) {
+        fs.rmSync(path.join(dest_path_aux, file), { recursive: true }, err => {
+        
+        });
+      }
+    });
+    resolve();
   });
 }
 
@@ -84,7 +87,8 @@ var cloneGithubRepositories = async(data) => {
       }
       
       // Clone Github repository
-      const { stdout, stderr } = await exec(`git clone ${url} ${dest_path}`);
+      const execPromise = util.promisify(exec);
+      const { stdout, stderr } = await execPromise(`git clone ${url} ${dest_path}`);
 
       // Eliminar archivos innecesarios
       await deleteUnnecesaryFiles(dest_path, "harmonize_readme")
@@ -138,89 +142,98 @@ var executePythonCode = (name_script, args) => {
 /*
 */
 var listAndExecutePythonCode = () => {
+  // Transform the files to html files (execute the python script)
+  const directoryPath = 'public\\repositories';
 
-  try {
+  let list_files = []
+  const files_aux = []
 
-    // Transform the files to html files (execute the python script)
-    const directoryPath = 'public\\repositories';
+  // List all the files from the different repositories
+  const folders_aux = fs.readdirSync(directoryPath).filter(function (file) {
+    return fs.statSync(directoryPath+'/'+file).isDirectory();
+  });
 
-    let list_files = []
-    const files_aux = []
+  for (const folder of folders_aux){
+    const folder_aux = path.join(directoryPath, folder, 'harmonize_readme');
+    
+    // If the folder does not exits create it
+    if (!fs.existsSync(folder_aux)) {
+      let repository_name = folder_aux.split(path.sep)[2];
 
-    // List all the files from the different repositories
-    const folders_aux = fs.readdirSync(directoryPath).filter(function (file) {
-      return fs.statSync(directoryPath+'/'+file).isDirectory();
-    });
+      // Create the html file if does not exits
+      fs.mkdirSync(folder_aux, { recursive: true });
+      fs.writeFileSync(path.join(folder_aux, 'README.html'), `<h1>${repository_name}</h1>`, { flag: 'w' });
 
-    for (const folder of folders_aux){
-      const folder_aux = path.join(directoryPath, folder, 'harmonize_readme');
-        const files_aux = fs.readdirSync(folder_aux).filter(function (file) {
-          return fs.statSync(folder_aux+'/'+file).isFile();
-      });    
+      fs.mkdirSync(folder_aux, { recursive: true });
+      fs.writeFileSync(path.join(folder_aux, 'config.json'), '{}', { flag: 'w' })
+    }
+    const files_aux = fs.readdirSync(folder_aux).filter(function (file) {
+      return fs.statSync(folder_aux+'/'+file).isFile();
+    });    
 
-      for (const file of files_aux){
-        if (file.includes('README')){
-          list_files.push(path.join(folder_aux, file))
-        }
+    for (const file of files_aux){
+      if (file.includes('README')){
+        list_files.push(path.join(folder_aux, file))
       }
     }
-
-    // Exe cute the python code for each file
-    const path_script = path.join('utils', 'readmeToHtml.py')
-    for (const arg_file of list_files){
-      executePythonCode (path_script, arg_file)
-    }
-
-    return true
-
-  } catch (err) {
-    // Handle the error
-    // console.error('Error:', err);
-    return false
   }
+
+  // Exe cute the python code for each file
+  const path_script = path.join('utils', 'readmeToHtml.py')
+  for (const arg_file of list_files){
+    executePythonCode (path_script, arg_file)
+  }
+
 }
 
 
 /*
 */
 var createPageRepositories = () => {
+
   const directoryPath = path.join('.', 'public', 'repositories');
   const template_path = path.join('.', 'utils', 'page_template.tsx'); // Replace with the path to your source file
 
-  // List all the files from the different repositories
-  const folders_aux = fs.readdirSync(directoryPath).filter(function (file) {
-    return fs.statSync(directoryPath+'/'+file).isDirectory();
-  });
-    
-  // Read the content of the source file
-  fs.readFile(template_path, 'utf8', (err, template_data) => {
-    if (err) {
-      console.error('Error reading file:', err);
-      return;
-    }
+  // try{
+    // List all the files from the different repositories
+    const folders_aux = fs.readdirSync(directoryPath).filter(function (file) {
+      return fs.statSync(directoryPath+'/'+file).isDirectory();
+    });
+      
+    // Read the content of the source file
+    fs.readFile(template_path, 'utf8', (err, template_data) => {
+      if (err) {
+        console.error('Error reading file:', err);
+        return;
+      }
 
-    folders_aux.forEach((repository) => {
-      let destination_path = path.join('app', '(toolkits)', repository); // Replace with the path to your destination file
-      let modified_template = template_data.replace('template', repository);
+      folders_aux.forEach((repository) => {
+        let destination_path = path.join('app', '(toolkits)', repository); // Replace with the path to your destination file
+        let modified_template = template_data.replace('template', repository);
 
-      // If the path does not exist, create it
-      fs.mkdir(destination_path, { recursive: true }, (err) => {
-        if (err) {
-          console.error('Error creating directory:', err);
-          return;
-        }
-
-        // Write the modified content to the destination file
-        fs.writeFile(path.join(destination_path, 'page.tsx'), modified_template, 'utf8', (err) => {
+        // If the path does not exist, create it
+        fs.mkdir(destination_path, { recursive: true }, (err) => {
           if (err) {
-            console.error('Error writing file:', err);
+            console.error('Error creating directory:', err);
             return;
           }
-          console.log('File copied and modified successfully.');
+
+          // Write the modified content to the destination file
+          fs.writeFile(path.join(destination_path, 'page.tsx'), modified_template, 'utf8', (err) => {
+            if (err) {
+              console.error('Error writing file:', err);
+              return;
+            }
+            console.log('File copied and modified successfully.');
+          });
         });
       });
     });
-  });
+
+  // } catch (err) {
+  //   // Handle the error
+  //   // console.error('Error:', err);
+  // }
 }
 
 
@@ -283,15 +296,13 @@ var main = () => {
     await cloneGithubRepositories(data)
 
     // Transform READMEs into htmls
-    let aux_correct = listAndExecutePythonCode()
+    listAndExecutePythonCode()
 
+    // Create the page.txt for each repository    
+    createPageRepositories()
+    // Generate the main config file for the main page.tsx with all the repositories
+    createMainPageRepositories()
 
-    // Create the page.txt for each repository
-    if (aux_correct === true) {
-      createPageRepositories()
-      // Generate the main config file for the main page.tsx with all the repositories
-      createMainPageRepositories()
-    }
   })();
 
 }

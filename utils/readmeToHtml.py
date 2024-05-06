@@ -25,21 +25,13 @@ def rstToHtml(input_file, output_file):
 
 def main(input_file):
 
-    if os.path.isfile(input_file):
-   
+    if os.path.isfile(input_file):   
         try:
             aux_file = f'{os.path.splitext(input_file)[0]}.html'
 
             ext      = os.path.splitext(input_file)[1].split('.')[-1]
             # Modify the output folder
             out_file = os.path.join(os.path.dirname(input_file), os.path.basename(aux_file))
-            
-            if ext == 'rst':
-                rstToHtml(input_file, aux_file)
-            elif ext == 'md':
-                mdToHtml(input_file, aux_file)
-            elif ext == 'ipynb':
-                ipynbToHtml(input_file, aux_file)
 
             # Create the final directory if not exists
             if os.path.isdir(os.path.dirname(out_file)) == False:
@@ -49,6 +41,13 @@ def main(input_file):
             if os.path.isfile(os.path.join(os.path.dirname(out_file), 'config.json')) == False:
                 with open(os.path.join(os.path.dirname(out_file), 'config.json'), 'w') as file:
                     json.dump({}, file)
+            
+            if ext == 'rst':
+                rstToHtml(input_file, aux_file)
+            elif ext == 'md':
+                mdToHtml(input_file, aux_file)
+            elif ext == 'ipynb':
+                ipynbToHtml(input_file, aux_file)
 
             shutil.move(aux_file, out_file)
 
@@ -66,4 +65,6 @@ if __name__ == '__main__':
         input_file  = sys.argv[1]
         main(input_file)    
     else:
+        # input_file = 'public\\repositories\\brclimr\\harmonize_readme\\README.html'
+        # main(input_file)    
         print('The number of parameters is incorrect, has to be one')
