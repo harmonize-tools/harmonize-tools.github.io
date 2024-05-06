@@ -84,10 +84,10 @@ var cloneGithubRepositories = async(data) => {
       }
       
       // Clone Github repository
-      const { stdout, stderr } = await execPromise(`git clone ${url} ${dest_path}`);
+      const { stdout, stderr } = await exec(`git clone ${url} ${dest_path}`);
 
       // Eliminar archivos innecesarios
-      await deleteUnnecessaryFiles(dest_path, "harmonize_readme")
+      await deleteUnnecesaryFiles(dest_path, "harmonize_readme")
 
     }
   }
@@ -139,34 +139,44 @@ var executePythonCode = (name_script, args) => {
 */
 var listAndExecutePythonCode = () => {
 
-  // Transform the files to html files (execute the python script)
-  const directoryPath = 'public\\repositories';
+  try {
 
-  let list_files = []
+    // Transform the files to html files (execute the python script)
+    const directoryPath = 'public\\repositories';
 
-  // List all the files from the different repositories
-  const folders_aux = fs.readdirSync(directoryPath).filter(function (file) {
-    return fs.statSync(directoryPath+'/'+file).isDirectory();
-  });
+    let list_files = []
+    const files_aux = []
 
-  for (const folder of folders_aux){
-    const folder_aux = path.join(directoryPath, folder, 'harmonize_readme');
-
-    const files_aux = fs.readdirSync(folder_aux).filter(function (file) {
-      return fs.statSync(folder_aux+'/'+file).isFile();
+    // List all the files from the different repositories
+    const folders_aux = fs.readdirSync(directoryPath).filter(function (file) {
+      return fs.statSync(directoryPath+'/'+file).isDirectory();
     });
 
-    for (const file of files_aux){
-      if (file.includes('README')){
-        list_files.push(path.join(folder_aux, file))
+    for (const folder of folders_aux){
+      const folder_aux = path.join(directoryPath, folder, 'harmonize_readme');
+        const files_aux = fs.readdirSync(folder_aux).filter(function (file) {
+          return fs.statSync(folder_aux+'/'+file).isFile();
+      });    
+
+      for (const file of files_aux){
+        if (file.includes('README')){
+          list_files.push(path.join(folder_aux, file))
+        }
       }
     }
-  }
 
-  // Exe cute the python code for each file
-  const path_script = path.join('utils', 'readmeToHtml.py')
-  for (const arg_file of list_files){
-    executePythonCode (path_script, arg_file)
+    // Exe cute the python code for each file
+    const path_script = path.join('utils', 'readmeToHtml.py')
+    for (const arg_file of list_files){
+      executePythonCode (path_script, arg_file)
+    }
+
+    return true
+
+  } catch (err) {
+    // Handle the error
+    // console.error('Error:', err);
+    return false
   }
 }
 
@@ -273,13 +283,15 @@ var main = () => {
     await cloneGithubRepositories(data)
 
     // Transform READMEs into htmls
-    listAndExecutePythonCode()
-    
-    // Create the page.txt for each repository
-    createPageRepositories()
+    let aux_correct = listAndExecutePythonCode()
 
-    // Generate the main config file for the main page.tsx with all the repositories
-    createMainPageRepositories()
+
+    // Create the page.txt for each repository
+    if (aux_correct === true) {
+      createPageRepositories()
+      // Generate the main config file for the main page.tsx with all the repositories
+      createMainPageRepositories()
+    }
   })();
 
 }
