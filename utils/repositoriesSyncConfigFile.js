@@ -140,7 +140,7 @@ var executePythonCode = (name_script, args) => {
 var listAndExecutePythonCode = () => {
 
   // Transform the files to html files (execute the python script)
-  const directoryPath = '.\\public\\repositories';
+  const directoryPath = 'public\\repositories';
 
   let list_files = []
 
