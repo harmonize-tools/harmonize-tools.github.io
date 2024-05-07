@@ -32,6 +32,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
       - name: Install Python
         uses: actions/setup-python@v2
         with:
@@ -105,10 +108,9 @@ jobs:
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-          branch: set-github-actions
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          force: true
-
+          branch: ${{ github.ref }}
+          
   # Deployment job
   deploy:
     environment:
