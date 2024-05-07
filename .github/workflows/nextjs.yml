@@ -36,12 +36,7 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.12.3' # You can specify the Python version you want to install here
-          
-      - name: "test"
-        uses: actions/checkout@v2
-        with:
           persist-credentials: false
-      
       - name: Detect package manager
         id: detect-package-manager
         run: |
