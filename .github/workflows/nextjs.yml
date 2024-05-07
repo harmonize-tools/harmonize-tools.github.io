@@ -98,19 +98,16 @@ jobs:
         with:
           path: ./out
       - name: Commit files # commit the output folder
-        run: |
-          git config --local user.email "githubPage@github.com"
-          git config --local user.name "GitHub Action test"
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
-          git checkout set-github-actions
-          git add --all
-          git commit -am "Added changes"
+        run:
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -a -m "Added changes"
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
-          
+
   # Deployment job
   deploy:
     environment:
