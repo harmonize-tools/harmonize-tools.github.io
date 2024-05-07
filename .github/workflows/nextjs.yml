@@ -104,7 +104,6 @@ jobs:
         with:
           branch: developing #ignore if your branch is master
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          force: true
 
   # Deployment job
   deploy:
