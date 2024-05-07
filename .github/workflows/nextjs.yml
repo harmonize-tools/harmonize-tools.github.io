@@ -8,7 +8,7 @@ on:
   # Runs on pushes targeting the default branch
   push:
     # branches: ["main"]
-    branches: ["set-github-actions"] # TAKE CARE HERE WITH THE SELECTED BRANCH HERE
+    branches: ["developing"] # TAKE CARE HERE WITH THE SELECTED BRANCH HERE
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -119,4 +119,3 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
-        
