@@ -97,13 +97,13 @@ jobs:
         run: |
           git config --local user.email "githubPage@github.com"
           git config --local user.name "GitHub Action test"
-          git add --all
-          git commit -am "Added changes"
+          git commit -a -m "Add changes"
+
       - name: Push changes # push the output folder to your repo
         uses: ad-m/github-push-action@master
         with:
-          branch: developing #ignore if your branch is master
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
 
   # Deployment job
   deploy:
