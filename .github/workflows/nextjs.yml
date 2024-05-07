@@ -8,7 +8,7 @@ on:
   # Runs on pushes targeting the default branch
   push:
     # branches: ["main"]
-    branches: ["developing"] # TAKE CARE HERE WITH THE SELECTED BRANCH HERE
+    branches: ["set-github-actions"] # TAKE CARE HERE WITH THE SELECTED BRANCH HERE
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -28,6 +28,8 @@ concurrency:
 jobs:
   # Build job
   build:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -36,6 +38,7 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.12.3' # You can specify the Python version you want to install here
+          persist-credentials: false
       - name: Detect package manager
         id: detect-package-manager
         run: |
@@ -95,15 +98,14 @@ jobs:
           path: ./out
       - name: Commit files # commit the output folder
         run: |
-          git config --local user.email "githubPage@github.com"
-          git config --local user.name "GitHub Action test"
-          git commit -a -m "Add changes"
-
-      - name: Push changes # push the output folder to your repo
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -a -m "Added changes"
+      - name: Push changes
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          # branch: ${{ github.ref }}
+          branch: ${{ github.ref }}
 
   # Deployment job
   deploy:
@@ -116,4 +118,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
