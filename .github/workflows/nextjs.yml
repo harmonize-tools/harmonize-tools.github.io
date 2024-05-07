@@ -97,14 +97,17 @@ jobs:
         run: |
           git config --local user.email "githubPage@github.com"
           git config --local user.name "GitHub Action test"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
+          git checkout developing
           git add --all
           git commit -am "Added changes"
-      - name: Push changes # push the output folder to your repo
-        uses: ad-m/github-push-action@master
-        with:
-          branch: developing #ignore if your branch is master
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          force: true
+          git push
+      # - name: Push changes # push the output folder to your repo
+      #   uses: ad-m/github-push-action@master
+      #   with:
+      #     branch: developing #ignore if your branch is master
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     force: true
 
   # Deployment job
   deploy:
@@ -118,4 +121,3 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
-        
