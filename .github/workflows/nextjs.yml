@@ -91,13 +91,6 @@ jobs:
       # Execute the utils script for cloning repositories and generate the needed files
       - name: Execute repositoriesSyncConfigFile.js script
         run: node utils/repositoriesSyncConfigFile.js
-      
-      - name: Build with Next.js
-        run: ${{ steps.detect-package-manager.outputs.runner }} next build
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./out
       - name: Commit files # commit the output folder
         run: |
           git config --local user.email "action@github.com"
@@ -115,7 +108,13 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
-
+      - name: Build with Next.js
+        run: ${{ steps.detect-package-manager.outputs.runner }} next build
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+          
   # Deployment job
   deploy:
     environment:
