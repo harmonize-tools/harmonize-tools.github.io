@@ -102,13 +102,13 @@ jobs:
           git checkout developing
           git add --all
           git commit -am "Added changes"
-          git push
-      # - name: Push changes # push the output folder to your repo
-      #   uses: ad-m/github-push-action@master
-      #   with:
-      #     branch: developing #ignore if your branch is master
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     force: true
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          branch: ${{ github.ref }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          force: true
+          persist-credentials: false
 
   # Deployment job
   deploy:
