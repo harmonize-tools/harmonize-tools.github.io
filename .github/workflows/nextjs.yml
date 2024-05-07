@@ -95,7 +95,7 @@ jobs:
         with:
           path: ./out
       - name: Commit files # commit the output folder
-        run:
+        run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git commit -a -m "Added changes"
