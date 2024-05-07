@@ -8,7 +8,7 @@ on:
   # Runs on pushes targeting the default branch
   push:
     # branches: ["main"]
-    branches: ["${{ github.ref }}"] # TAKE CARE HERE WITH THE SELECTED BRANCH HERE
+    branches: ["set-github-actions"] # TAKE CARE HERE WITH THE SELECTED BRANCH HERE
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -99,13 +99,13 @@ jobs:
           git config --local user.email "githubPage@github.com"
           git config --local user.name "GitHub Action test"
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
-          git checkout ${{ github.ref }}
+          git checkout set-github-actions
           git add --all
           git commit -am "Added changes"
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-          branch: ${{ github.ref }}
+          branch: set-github-actions
           github_token: ${{ secrets.GITHUB_TOKEN }}
           force: true
           persist-credentials: false
