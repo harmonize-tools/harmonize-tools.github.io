@@ -103,12 +103,11 @@ jobs:
           git add --all
           git commit -am "Added changes"
       - name: Push changes
-        uses: ad-m/github-push-action@master
+        uses: ad-m/github-push-action@set-github-actions
         with:
           branch: set-github-actions
           github_token: ${{ secrets.GITHUB_TOKEN }}
           force: true
-          persist-credentials: false
 
   # Deployment job
   deploy:
