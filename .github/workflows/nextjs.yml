@@ -103,7 +103,7 @@ jobs:
           git add --all
           git commit -am "Added changes"
       - name: Push changes
-        uses: ad-m/github-push-action@set-github-actions
+        uses: ad-m/github-push-action@master
         with:
           branch: set-github-actions
           github_token: ${{ secrets.GITHUB_TOKEN }}
