@@ -12,9 +12,21 @@
     "src": "cards/brclimr.svg"
   },
   {
+    "name": "clim4health",
+    "description": " ",
+    "link": "clim4health",
+    "src": "cards/clim4health.svg"
+  },
+  {
     "name": "climate-downscaling",
     "description": " ",
     "link": "climate-downscaling",
     "src": "cards/climate-downscaling.svg"
+  },
+  {
+    "name": "socio4health",
+    "description": " ",
+    "link": "socio4health",
+    "src": "cards/socio4health.svg"
   }
 ]
