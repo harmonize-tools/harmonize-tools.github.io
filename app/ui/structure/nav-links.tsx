@@ -12,35 +12,25 @@ import {
 
 const links = [
   {
-    name: 'brclimr',
+    name: 'Tutorials',
     href: '/brclimr',
     icon: SunIcon,
   },
   {
-    name: 'Dataset descriptions',
+    name: 'Trainnings',
     href: '/dataset-descriptions',
     icon: DocumentTextIcon,
   },
   {
-    name: 'Data sources list',
+    name: 'Templates',
     href: '/data-sources-list',
     icon: ListBulletIcon,
   },
   {
-    name: 'Health data questionnaire',
+    name: 'Related products',
     href: '/health-data-questionnaire',
     icon: QuestionMarkCircleIcon,
-  },
-  {
-    name: 'clim4health',
-    href: '/clim4health',
-    icon: DocumentChartBarIcon,
-  },
-  {
-    name: 'Health data tool',
-    href: '/health-data-tool',
-    icon: HeartIcon,
-  },
+  }
 ];
 
 export default function NavLinks() {
