@@ -75,7 +75,7 @@ var cloneGithubRepositories = async(data) => {
     let files     = ''
 
     // Do not sync actual repository
-    if (name != 'harmonize-tools.github.io') {
+    if (name != 'harmonize-tools.github.io' && name.includes('4health')) {
 
       // Create destination repository
       dest_path = path.join("public", 'repositories', name)
