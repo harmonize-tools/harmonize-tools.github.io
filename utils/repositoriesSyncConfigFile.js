@@ -141,7 +141,7 @@ var executePythonCode = (name_script, args) => {
 
 /*
 */
-var listAndExecutePythonCode = () => {
+var listAndExecutePythonCode = async() => {
   // Transform the files to html files (execute the python script)
   const directoryPath = 'public/repositories';
 
@@ -195,7 +195,7 @@ var listAndExecutePythonCode = () => {
 
 /*
 */
-var createPageRepositories = () => {
+var createPageRepositories = async() => {
 
   const directoryPath = path.join('.', 'public', 'repositories');
   const template_path = path.join('.', 'utils', 'page_template.tsx'); // Replace with the path to your source file
@@ -245,7 +245,7 @@ var createPageRepositories = () => {
 
 /*
 */
-var createMainPageRepositories = () => {
+var createMainPageRepositories = async() => {
   let config_list      = []
   let name_data        = ''
   let description_data = ''
@@ -262,10 +262,11 @@ var createMainPageRepositories = () => {
     if ( repository.includes('4health')) {
 
       let path_aux = path.join(directory_path, repository, 'harmonize_readme', 'config.json')
-      
-        if (fs.existsSync(path_aux)) {
+      let json_config = [{}]
 
-        let json_config = JSON.parse(fs.readFileSync(path_aux, 'utf8'));
+        if (fs.existsSync(path_aux)) {
+          json_config = JSON.parse(fs.readFileSync(path_aux, 'utf8'));
+        } 
 
         if (!json_config.hasOwnProperty('name')) {
           name_data = repository
@@ -285,13 +286,11 @@ var createMainPageRepositories = () => {
           link       : repository,
           src        : path.join(card_path, repository+'.svg').replace(/\\/g, '/')
         })
-      } else {
-        console.error(`File not found: ${path_aux}`);
-      }
+      
     }
   });
 
-
+  console.log("ADFAGFDFG", config_list)
   fs.writeFile(output_path, JSON.stringify(config_list, null, 2), 'utf8', (err) => {
     if (err) {
       console.error('Error writing config file:', err);
@@ -312,12 +311,12 @@ var main = () => {
     await cloneGithubRepositories(data)
 
     // Transform READMEs into htmls
-    listAndExecutePythonCode()
+    await listAndExecutePythonCode()
 
     // Create the page.txt for each repository    
-    createPageRepositories()
+    await createPageRepositories()
     // Generate the main config file for the main page.tsx with all the repositories
-    createMainPageRepositories()
+    await createMainPageRepositories()
 
   })();
 
