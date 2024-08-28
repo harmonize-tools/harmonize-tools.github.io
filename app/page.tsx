@@ -14,7 +14,7 @@ export default function Page() {
         <div className="w-screen grow p-6 md:p-12 md:p-6">
           <Menu></Menu>
           <h1 className="mb-2 mt-6 text-3xl font-semibold md:mt-0">
-            All toolkits
+            Toolkits
           </h1>
           <p className="text-justify text-l text-gray-500">
             Explore different R and python libraries tailored for health, climate, and socioeconomic analysis, 
