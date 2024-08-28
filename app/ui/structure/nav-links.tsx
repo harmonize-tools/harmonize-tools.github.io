@@ -9,32 +9,40 @@ import {
   QuestionMarkCircleIcon,
   HeartIcon,
   DocumentChartBarIcon,
+  AcademicCapIcon,
+  TrophyIcon,
+  UserGroupIcon
 } from '@heroicons/react/24/outline';
 
 const links = [
   {
     name: 'Toolkits',
     href: '/',
-    icon: SunIcon,
+    icon: ListBulletIcon,
   },
   {
     name: 'Tutorials',
     href: '',
-    icon: SunIcon,
+    icon: AcademicCapIcon,
   },
   {
     name: 'Trainnings',
     href: '',
-    icon: DocumentTextIcon,
+    icon: TrophyIcon,
   },
   {
     name: 'Templates',
     href: '',
-    icon: ListBulletIcon,
+    icon: DocumentTextIcon,
   },
   {
     name: 'Related products',
     href: '/related_products',
+    icon: UserGroupIcon,
+  },
+  {
+    name: 'About',
+    href: '/about',
     icon: QuestionMarkCircleIcon,
   }
 ];
