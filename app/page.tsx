@@ -20,8 +20,6 @@ export default function Page() {
             Explore different R and python libraries tailored for health, climate, and socioeconomic analysis, 
             offering robust statistical methods, data visualization tools, and predictive modeling capabilities to 
             address complex challenges in these domains.
-            <br></br>
-            Also It includes a template dashboard using all this tools for the different data generated.
           </p>
           <ProjectsGrid projects={projects}></ProjectsGrid>
         </div>
