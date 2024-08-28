@@ -34,7 +34,7 @@ const links = [
   },
   {
     name: 'Related products',
-    href: '',
+    href: '/related_products',
     icon: QuestionMarkCircleIcon,
   }
 ];
