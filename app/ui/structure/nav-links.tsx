@@ -36,17 +36,7 @@ const links = [
     name: 'Related products',
     href: '',
     icon: QuestionMarkCircleIcon,
-  },
-  {
-    name: 'clim4health',
-    href: '/clim4health',
-    icon: DocumentChartBarIcon,
-  },
-  {
-    name: 'Health data tool',
-    href: '/health-data-tool',
-    icon: HeartIcon,
-  },
+  }
 ];
 
 export default function NavLinks() {

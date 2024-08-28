@@ -75,7 +75,7 @@ var cloneGithubRepositories = async(data) => {
     let files     = ''
 
     // Do not sync actual repository
-    if (name != 'harmonize-tools.github.io') {
+    if (name != 'harmonize-tools.github.io' && name.includes('4health')) {
 
       // Create destination repository
       dest_path = path.join("public", 'repositories', name)
@@ -141,7 +141,7 @@ var executePythonCode = (name_script, args) => {
 
 /*
 */
-var listAndExecutePythonCode = () => {
+var listAndExecutePythonCode = async() => {
   // Transform the files to html files (execute the python script)
   const directoryPath = 'public/repositories';
 
@@ -156,6 +156,7 @@ var listAndExecutePythonCode = () => {
   for (const folder of folders_aux){
     const folder_aux = path.join(directoryPath, folder, 'harmonize_readme');
     
+    console.log(fs.existsSync(folder_aux), folder_aux.split(path.sep)[2].includes('4health'))
     // If the folder does not exits create it
     if (!fs.existsSync(folder_aux)) {
       let repository_name = folder_aux.split(path.sep)[2];
@@ -167,14 +168,19 @@ var listAndExecutePythonCode = () => {
       fs.mkdirSync(folder_aux, { recursive: true });
       fs.writeFileSync(path.join(folder_aux, 'config.json'), '{}', { flag: 'w' })
     }
-    const files_aux = fs.readdirSync(folder_aux).filter(function (file) {
-      return fs.statSync(folder_aux+'/'+file).isFile();
-    });    
 
-    for (const file of files_aux){
-      if (file.includes('README')){
-        list_files.push(path.join(folder_aux, file))
+    if (fs.existsSync(folder_aux)) {
+      const files_aux = fs.readdirSync(folder_aux).filter(function (file) {
+          return fs.statSync(path.join(folder_aux, file)).isFile();
+      });
+
+      for (const file of files_aux){
+        if (file.includes('README')){
+          list_files.push(path.join(folder_aux, file))
+        }
       }
+    } else {
+        console.error(`Directory not found 1: ${folder_aux}`);
     }
   }
 
@@ -189,7 +195,7 @@ var listAndExecutePythonCode = () => {
 
 /*
 */
-var createPageRepositories = () => {
+var createPageRepositories = async() => {
 
   const directoryPath = path.join('.', 'public', 'repositories');
   const template_path = path.join('.', 'utils', 'page_template.tsx'); // Replace with the path to your source file
@@ -239,7 +245,7 @@ var createPageRepositories = () => {
 
 /*
 */
-var createMainPageRepositories = () => {
+var createMainPageRepositories = async() => {
   let config_list      = []
   let name_data        = ''
   let description_data = ''
@@ -252,30 +258,39 @@ var createMainPageRepositories = () => {
   });
 
   folders_aux.forEach((repository) => {
-    let path_aux = path.join(directory_path, repository, 'harmonize_readme', 'config.json')
-    let json_config = JSON.parse(fs.readFileSync(path_aux, 'utf8'));
-
-    if (!json_config.hasOwnProperty('name')) {
-      name_data = repository
-    } else {
-      name_data = json_config.name
-    }
     
-    if (!json_config.hasOwnProperty('description')) {
-      description_data = " "
-    } else {
-      description_data = json_config.description
-    }
+    if ( repository.includes('4health')) {
 
-    config_list.push({
-      name       : name_data,
-      description: description_data,
-      link       : repository,
-      src        : path.join(card_path, repository+'.svg').replace(/\\/g, '/')
-    })
+      let path_aux = path.join(directory_path, repository, 'harmonize_readme', 'config.json')
+      let json_config = [{}]
+
+        if (fs.existsSync(path_aux)) {
+          json_config = JSON.parse(fs.readFileSync(path_aux, 'utf8'));
+        } 
+
+        if (!json_config.hasOwnProperty('name')) {
+          name_data = repository
+        } else {
+          name_data = json_config.name
+        }
+        
+        if (!json_config.hasOwnProperty('description')) {
+          description_data = " "
+        } else {
+          description_data = json_config.description
+        }
+
+        config_list.push({
+          name       : name_data,
+          description: description_data,
+          link       : repository,
+          src        : path.join(card_path, repository+'.svg').replace(/\\/g, '/')
+        })
+      
+    }
   });
 
-
+  console.log("ADFAGFDFG", config_list)
   fs.writeFile(output_path, JSON.stringify(config_list, null, 2), 'utf8', (err) => {
     if (err) {
       console.error('Error writing config file:', err);
@@ -296,12 +311,12 @@ var main = () => {
     await cloneGithubRepositories(data)
 
     // Transform READMEs into htmls
-    listAndExecutePythonCode()
+    await listAndExecutePythonCode()
 
     // Create the page.txt for each repository    
-    createPageRepositories()
+    await createPageRepositories()
     // Generate the main config file for the main page.tsx with all the repositories
-    createMainPageRepositories()
+    await createMainPageRepositories()
 
   })();
 
