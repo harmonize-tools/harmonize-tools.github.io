@@ -6,7 +6,7 @@ export default function SideNav() {
     <div className="flex h-full flex-col">
       <Link
         className="mt-10 flex h-20 items-end justify-evenly rounded-md"
-        href="/"
+        href="https://www.harmonize-tools.org/"
       >
         <div className="w-48">
           <img
