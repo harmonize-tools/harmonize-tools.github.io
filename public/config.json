@@ -3,12 +3,14 @@
     "name": "clim4health",
     "description": " ",
     "link": "clim4health",
-    "src": "cards/clim4health.svg"
+    "src": "cards/toolkits/clim4health.svg",
+    "width": "55%"
   },
   {
     "name": "socio4health",
     "description": " ",
     "link": "socio4health",
-    "src": "cards/socio4health.svg"
+    "src": "cards/toolkits/socio4health.svg",
+    "width": "55%"
   }
 ]

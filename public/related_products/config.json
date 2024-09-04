@@ -1,0 +1,16 @@
+[
+    {
+      "name": "Brazil data cube",
+      "description": "Production, visualization and analysis of large volumes of remote sensing images modeled as multidimensional data cubes for the entire Brazilian territory.",
+      "link": "https://brazildatacube.dpi.inpe.br/portal/explore",
+      "src": "cards/brazil_data_cube.webp",
+      "width": "62%"
+    },
+    {
+      "name": "Innovalab - Peru",
+      "description": "Web for georeferenced field data collection, using statistical methods for sampling in Peru, providing a comprehensive audit of climate, health and sociodemographic databases.",
+      "link": "https://healthinnovation.github.io/harmonize/",
+      "src": "cards/innovalab.png",
+      "width": "55%"
+    }
+  ]

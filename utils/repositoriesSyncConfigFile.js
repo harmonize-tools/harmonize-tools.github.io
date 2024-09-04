@@ -250,7 +250,7 @@ var createMainPageRepositories = async() => {
   let name_data        = ''
   let description_data = ''
   const directory_path = path.join('.', 'public', 'repositories');
-  const card_path = path.join('.', 'cards');
+  const card_path      = path.join('.', 'cards', 'toolkits');
   const output_path    = path.join('.', 'public', 'config.json');
 
   const folders_aux = fs.readdirSync(directory_path).filter(function (file) {
@@ -284,13 +284,13 @@ var createMainPageRepositories = async() => {
           name       : name_data,
           description: description_data,
           link       : repository,
-          src        : path.join(card_path, repository+'.svg').replace(/\\/g, '/')
+          src        : path.join(card_path, repository+'.svg').replace(/\\/g, '/'),
+          width      : "55%"
         })
       
     }
   });
 
-  console.log("ADFAGFDFG", config_list)
   fs.writeFile(output_path, JSON.stringify(config_list, null, 2), 'utf8', (err) => {
     if (err) {
       console.error('Error writing config file:', err);
