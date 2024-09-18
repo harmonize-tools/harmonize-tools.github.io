@@ -1,6 +1,7 @@
 import os, sys, json
 import shutil
 from docutils.core import publish_file
+from htmlWithTabs import main as main_toTabs
 
 def ipynbToHtml(input_file, output_file):
     # Command 
@@ -50,6 +51,7 @@ def main(input_file):
                 ipynbToHtml(input_file, aux_file)
 
             shutil.move(aux_file, out_file)
+            main_toTabs(out_file)
 
             print(out_file)
         except Exception as e:
