@@ -107,7 +107,7 @@ def addHtmlStyles (html_content) :
     new_html_content = f"{parts[0]}{script_html}\n</body>{parts[1]}"
 
     parts = new_html_content.split('</style>')
-    return BeautifulSoup(f'{parts[0]}{style_html}\n</style>{parts[1]}', features="lxml")
+    return BeautifulSoup(f'{parts[0]}{parts[1]}{style_html}\n</style>{parts[1]}', features="lxml")
 
 def main (path_html) :
     html_content = open(path_html, 'r', encoding='utf-8').read()
