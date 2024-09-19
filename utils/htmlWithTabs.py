@@ -118,7 +118,3 @@ def main (path_html) :
     html_content = addHtmlStyles(html_content)
 
     open(path_html, 'w', encoding='utf-8').write(str(html_content))
-
-
-
-
