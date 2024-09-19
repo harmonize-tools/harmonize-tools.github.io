@@ -88,7 +88,6 @@ def createMenu (html_content) :
 
 def addSectionH2(html_content) : 
     h2_elements = html_content.find_all('h2')
-    
     for h2 in h2_elements :
         new_section = html_content.new_tag('section', id=h2.get_text().lower().strip())
         h2.insert_before(new_section)
@@ -106,9 +105,9 @@ def addSectionH2(html_content) :
 def addHtmlStyles (html_content) :
     parts = html_content.split('</body>')
     new_html_content = f"{parts[0]}{script_html}\n</body>{parts[1]}"
-    
+
     parts = new_html_content.split('</style>')
-    return BeautifulSoup(f'{parts[0]}{parts[1]}{style_html}\n</style>{parts[2]}')
+    return BeautifulSoup(f'{parts[0]}{style_html}\n</style>{parts[1]}', features="lxml")
 
 def main (path_html) :
     html_content = open(path_html, 'r', encoding='utf-8').read()
@@ -118,7 +117,7 @@ def main (path_html) :
     html_content = addSectionH2(BeautifulSoup(html_content, 'html.parser'))
     html_content = addHtmlStyles(html_content)
 
-    open(path_html, 'w', encoding='utf-8').write(html_content)
+    open(path_html, 'w', encoding='utf-8').write(html_content.prettify())
 
 
 
