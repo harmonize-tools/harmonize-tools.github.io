@@ -61,7 +61,7 @@ The project consists of resources and [tools](https://harmonize-tools.github.io/
 </br>
 </br>
 <a href="https://github.com/Alba-LB">
-  <img src="https://avatars.githubusercontent.com/u/129278822?v=4" style="width: 50px; height: auto;" />
+  <img src="https://avatars.githubusercontent.com/u/129278822?v=4" style="width: 10%; height: auto;" />
 </a>
 <span style="display: flex; align-items: center; margin-left: 10px;">
   <strong>Alba Llabrés-Brustenga</strong> (developer)
@@ -73,7 +73,7 @@ The project consists of resources and [tools](https://harmonize-tools.github.io/
 </br>
 </br>
 <a href="https://github.com/Daniela-L">
-  <img src="https://avatars.githubusercontent.com/u/76750744?v=4" style="width: 50px; height: auto;" />
+  <img src="https://avatars.githubusercontent.com/u/76750744?v=4" style="width: 10%; height: auto;" />
 </a>
 <span style="display: flex; align-items: center; margin-left: 10px;">
   <strong>Daniela Lührsen</strong> (developer)
@@ -85,7 +85,7 @@ The project consists of resources and [tools](https://harmonize-tools.github.io/
 </br>
 </br>
 <a href="https://github.com/RaulCapellanFernandez">
-  <img src="https://avatars.githubusercontent.com/u/22483508?v=4" style="width: 50px; height: auto;" />
+  <img src="https://avatars.githubusercontent.com/u/22483508?v=4" style="width: 10%; height: auto;" />
 </a>
 <span style="display: flex; align-items: center; margin-left: 10px;">
   <strong>Raúl Capellán Fernández</strong> (developer)
