@@ -106,9 +106,11 @@ def addSectionH2(html_content) :
 def addHtmlStyles (html_content) :
     parts = html_content.split('</body>')
     new_html_content = f"{parts[0]}{script_html}\n</body>{parts[1]}"
+
+    return BeautifulSoup(new_html_content)
     
-    parts = new_html_content.split('</style>')
-    return BeautifulSoup(f'{parts[0]}{parts[1]}{style_html}\n</style>{parts[2]}')
+    # parts = new_html_content.split('</style>')
+    # return BeautifulSoup(f'{parts[0]}{parts[1]}{style_html}\n</style>{parts[2]}')
 
 def main (path_html) :
     html_content = open(path_html, 'r', encoding='utf-8').read()
