@@ -119,10 +119,3 @@ def main (path_html) :
     html_content = addHtmlStyles(html_content)
 
     open(path_html, 'w', encoding='utf-8').write(str(html_content))
-#     open('test.html', 'w', encoding='utf-8').write(str(html_content))
-
-# if __name__ == '__main__':
-#     if len(sys.argv) == 1 :
-#         main('../public/repositories/clim4health/harmonize_readme/readme.html')
-#     else :
-#         print('Number of arguments is incorrect')
