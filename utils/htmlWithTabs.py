@@ -117,7 +117,7 @@ def main (path_html) :
     html_content = addSectionH2(BeautifulSoup(html_content, 'html.parser'))
     html_content = addHtmlStyles(html_content)
 
-    open(path_html, 'w', encoding='utf-8').write(html_content.prettify())
+    open(path_html, 'w', encoding='utf-8').write(str(html_content))
 
 
 
