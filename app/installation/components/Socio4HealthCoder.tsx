@@ -69,9 +69,9 @@ print(socio4health.__version__)`}</code></pre>
           </summary>
           <div className="p-4">
             <ul className="list-disc pl-5 space-y-1 text-gray-800">
-              <li>Official documentation: Check the socio library's official documentation for detailed API reference</li>
-              <li>GitHub repository: Visit the project's GitHub page for examples and issue tracking</li>
-              <li>Community support: Join relevant forums or Discord channels for help</li>
+              <li>Check out the official <a href="https://harmonize-tools.github.io/socio4health/" target="_blank" rel="noopener noreferrer">package documentation</a></li>
+              <li>PyPI package: Find the <a href="https://pypi.org/project/socio4health/" target="_blank" rel="noopener noreferrer">socio4health package on PyPI</a> for installation and version info</li>
+              <li>GitHub repository: browse the project's code and issues at <a href="https://github.com/harmonize-tools/socio4health" target="_blank" rel="noopener noreferrer">harmonize-tools/socio4health</a></li>
             </ul>
           </div>
         </details>
