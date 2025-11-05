@@ -24,13 +24,7 @@ export default function Page({
   params: { name: string; description: string };
 }) {
   return (
-    <ProjectLayout
-      links     = {config_data.links}
-      licenses  = {config_data.licenses}
-      citations = {config_data.citations}
-      authors   = {config_data.authors}
-      badges    = {config_data.badges}
-    >
+    <ProjectLayout>
       <iframe src={path_html} width="100%" height="1000"></iframe>
     </ProjectLayout>
   );

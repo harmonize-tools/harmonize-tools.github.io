@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import {
   CommandLineIcon,
   WindowIcon,
@@ -7,10 +8,18 @@ import {
 import Image from 'next/image';
 import { useState } from 'react';
 
+import Data4HealthCoder from './components/Data4HealthCoder';
+import Data4HealthNonCoder from './components/Data4HealthNonCoder';
+import Socio4HealthCoder from './components/Socio4HealthCoder';
+import Socio4HealthNonCoder from './components/Socio4HealthNonCoder';
+import Clim4HealthCoder from './components/Clim4HealthCoder';
+import Land4HealthCoder from './components/Land4HealthCoder';
+
 const D4H_LOGO = '/cards/toolkits/data4health.svg';
 const C4H_LOGO = '/cards/toolkits/clim4health.svg';
 const L4H_LOGO = '/cards/toolkits/land4health.svg';
 const S4H_LOGO = '/cards/toolkits/socio4health.svg';
+const CU4H_LOGO = '/cards/toolkits/cube4health.svg';
 
 
 type Section = 'data4health' | 'clim4health' | 'land4health' | 'socio4health';
@@ -21,6 +30,7 @@ interface CircularButtonProps {
   onClick: () => void;
   isImage?: boolean;
   isActive?: boolean;
+  size?: 'sm' | 'md';
 }
 
 interface SubButtonConfig {
@@ -38,7 +48,15 @@ function CircularButton({ icon, label, onClick, isImage = false, isActive = fals
   return (
     <div className="flex flex-col items-center space-y-2 group">
       <div
+        role="button"
+        tabIndex={0}
         onClick={onClick}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            onClick();
+          }
+        }}
         className={`cursor-pointer transform transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-lg rounded-full p-4 w-24 h-24 flex items-center justify-center
           ${isActive 
             ? 'bg-purple-100 shadow-lg scale-105 rotate-3' 
@@ -48,17 +66,22 @@ function CircularButton({ icon, label, onClick, isImage = false, isActive = fals
           <Image 
             src={icon as string} 
             alt={label}
-            width={64}
-            height={64}
-            width={80} 
-            height={80} 
+            width={80}
+            height={80}
             className={`text-current transform transition-transform duration-300 
               ${isActive ? '-rotate-3' : 'group-hover:-rotate-3'}`}
           />
         ) : (
-          <Icon className={`h-12 w-12 transition-all duration-300 
-            ${isActive ? 'text-purple-700' : 'text-dark-purple group-hover:text-purple-700'}`} 
-          />
+          // allow passing a simple string (emoji) as icon
+          typeof icon === 'string' ? (
+            <span className={`text-2xl transition-all duration-300 ${isActive ? 'text-purple-700' : 'text-dark-purple group-hover:text-purple-700'}`}>
+              {icon}
+            </span>
+          ) : (
+            <Icon className={`h-12 w-12 transition-all duration-300 
+              ${isActive ? 'text-purple-700' : 'text-dark-purple group-hover:text-purple-700'}`} 
+            />
+          )
         )}
       </div>
       <span className={`text-sm font-medium transition-all duration-300 
@@ -125,13 +148,6 @@ function SubButtons({ section, onButtonClick, activeInstallType }: SubButtonsPro
   );
 }
 
-import Data4HealthCoder from './components/Data4HealthCoder';
-import Data4HealthNonCoder from './components/Data4HealthNonCoder';
-import Socio4HealthCoder from './components/Socio4HealthCoder';
-import Socio4HealthNonCoder from './components/Socio4HealthNonCoder';
-import Clim4HealthCoder from './components/Clim4HealthCoder';
-import Land4HealthCoder from './components/Land4HealthCoder';
-
 interface InstallationContentProps {
   section: Section;
   type: 'coder' | 'noncoder';
@@ -169,7 +185,7 @@ export default function Page() {
       setActiveSection(null);
     } else {
       setActiveSection(section);
-      setActiveInstallType(null); // Reset installation type when changing toolkit
+      setActiveInstallType(null);
     }
   };
 

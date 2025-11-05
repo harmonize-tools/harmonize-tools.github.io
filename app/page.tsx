@@ -15,6 +15,7 @@ export default function Page() {
         offering robust statistical methods, data visualization tools, and predictive modeling capabilities to 
         address complex challenges in these domains.
       </p>
+      
       <ProjectsGrid projects={projects} />
     </div>
   );

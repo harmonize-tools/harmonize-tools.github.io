@@ -1,5 +1,4 @@
 import ProjectsGrid from '@/app/ui/components/projects-grid';
-import SideNav from '@/app/ui/structure/sidenav';
 import Menu from '@/app/ui/structure/menu';
 
 const projects = require('../../../public/related_products/config.json');
@@ -8,9 +7,6 @@ export default function Page() {
   return (
     <main>
       <div className="flex flex-col md:flex-row">
-        <aside className="w-full flex-none p-6 md:sticky md:top-0 md:h-screen md:w-72">
-          <SideNav />
-        </aside>
         <div className="w-screen grow p-6 md:p-12 md:p-6">
           <Menu></Menu>
           <h1 className="mb-2 mt-6 text-3xl font-semibold md:mt-0">
