@@ -22,8 +22,8 @@ const links = [
     icon: ListBulletIcon,
   },
   {
-    name: 'Prerequisites',
-    href: '/prerequisite',
+    name: 'Installation',
+    href: '/installation',
     icon: ClipboardDocumentCheckIcon,
   },
   {

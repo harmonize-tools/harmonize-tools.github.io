@@ -195,7 +195,7 @@ export default function Page() {
 
   return (
     <div className="container mx-auto px-4">
-      <h1 className="mb-2 mt-6 text-3xl font-semibold md:mt-0">Prerequisites</h1>
+      <h1 className="mb-2 mt-6 text-3xl font-semibold md:mt-0">Installation</h1>
       <p className="text-justify text-l text-gray-500">
         Before using our toolkits, ensure you have the necessary software and packages installed. 
         Select your preferred toolkit below to see specific installation instructions for coders and non-coders.
