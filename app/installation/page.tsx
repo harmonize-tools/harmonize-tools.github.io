@@ -14,6 +14,7 @@ import Socio4HealthCoder from './components/Socio4HealthCoder';
 import Socio4HealthNonCoder from './components/Socio4HealthNonCoder';
 import Clim4HealthCoder from './components/Clim4HealthCoder';
 import Land4HealthCoder from './components/Land4HealthCoder';
+import Cube4HealthCoder from './components/Cube4HealthCoder';
 
 const D4H_LOGO = '/cards/toolkits/data4health.svg';
 const C4H_LOGO = '/cards/toolkits/clim4health.svg';
@@ -22,7 +23,7 @@ const S4H_LOGO = '/cards/toolkits/socio4health.svg';
 const CU4H_LOGO = '/cards/toolkits/cube4health.svg';
 
 
-type Section = 'data4health' | 'clim4health' | 'land4health' | 'socio4health';
+type Section = 'data4health' | 'clim4health' | 'land4health' | 'socio4health' | 'cube4health';
 
 interface CircularButtonProps {
   icon: React.ElementType | string;
@@ -113,6 +114,9 @@ function SubButtons({ section, onButtonClick, activeInstallType }: SubButtonsPro
     socio4health: [
       { icon: CommandLineIcon, label: 'Coders (Python)', isImage: false },
       { icon: WindowIcon, label: 'Non-coders', isImage: false }
+    ],
+    cube4health: [
+      { icon: CommandLineIcon, label: 'Coders (Python)', isImage: false }
     ]
   } as const;
 
@@ -169,6 +173,10 @@ function InstallationContent({ section, type }: InstallationContentProps) {
     },
     land4health: {
       coder: <Land4HealthCoder />,
+      noncoder: null
+    },
+    cube4health: {
+      coder: <Cube4HealthCoder />,
       noncoder: null
     }
   };
@@ -229,6 +237,13 @@ export default function Page() {
           onClick={() => handleToolkitClick('socio4health')}
           isImage={true}
           isActive={activeSection === 'socio4health'}
+        />
+        <CircularButton
+          icon={CU4H_LOGO}
+          label="cube4health"
+          onClick={() => handleToolkitClick('cube4health')}
+          isImage={true}
+          isActive={false}
         />
       </div>
 

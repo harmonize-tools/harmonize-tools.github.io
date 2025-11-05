@@ -29,8 +29,8 @@
   },
   {
     "name": "cube4health",
-    "description": " ",
-    "link": " ",
+    "description": "A data acquisition, processing, and publishing toolkit designed to streamline the integration of health, climate, and drone imagery.",
+    "link": "https://github.com/Harmonize-Brazil/cube4health",
     "src": "cards/toolkits/cube4health.svg",
     "width": "45%"
   }
