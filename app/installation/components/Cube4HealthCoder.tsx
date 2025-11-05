@@ -7,7 +7,6 @@ export default function Cube4HealthCoder({ os }: { os?: OS }) {
 		<article className="mt-4 rounded-lg bg-white p-6 shadow-sm">
 			<header>
 				<h1 className="page-title text-2xl font-extrabold mb-2">cube4health</h1>
-				<p className="page-description text-sm text-gray-600 mb-4">Development & installation notes for cube4health (GDAL and Python bindings).</p>
 			</header>
 
 			<div className="page-body text-gray-800">

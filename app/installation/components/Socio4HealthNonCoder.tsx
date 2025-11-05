@@ -2,8 +2,8 @@ export default function Socio4HealthNonCoder() {
   return (
     <article className="mt-4 rounded-lg bg-white p-6 shadow-sm">
       <header>
-        <h1 className="page-title text-2xl font-extrabold mb-2">Guide to Installing Socio4Health</h1>
-        <p className="page-description text-sm text-gray-600 mb-4">Friendly step-by-step instructions for non-coders.</p>
+        <h1 className="page-title text-2xl font-extrabold mb-2">socio4Health</h1>
+        <p>Friendly step-by-step instructions for installing socio4Health for non-coders.</p>
       </header>
       <details className="group mt-4 mb-4 border rounded">
         <summary className="flex items-center justify-between cursor-pointer px-4 py-3 bg-gray-50 hover:bg-gray-100">
@@ -11,7 +11,7 @@ export default function Socio4HealthNonCoder() {
           <span className="text-gray-600">▸</span>
         </summary>
         <div className="p-4">
-          <p className="text-gray-700">You can try the hosted Streamlit app:</p>
+          <p className="text-gray-700">You can try the hosted Streamlit app (remember that the link can be down, for this see the section "Deploy yourself"):</p>
           <div className="mt-3">
             <a
               href="https://socio4health.streamlit.app/"
@@ -50,6 +50,11 @@ source venv/bin/activate`}</code></pre>
           <p className="mt-3 text-gray-700"><strong>Step 4:</strong> Run the app:</p>
           <pre className="mt-2 bg-gray-50 border rounded p-3 overflow-x-auto"><code className="language-python">{`streamlit run Home.py --server.maxUploadSize=500`}</code></pre>
           <p className="mt-3 text-gray-700">Then open your browser and go to <strong>http://localhost:8501</strong> to access the app.</p>
+          <img
+            src="/img/image.png"
+            alt="Socio4Health Streamlit App Screenshot"
+            className="mt-4 rounded border"
+          />
         </div>
       </details>
 

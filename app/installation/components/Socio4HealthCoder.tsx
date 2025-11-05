@@ -2,8 +2,8 @@ export default function Socio4HealthCoder() {
   return (
     <article className="mt-4 rounded-lg bg-white p-6 shadow-sm">
       <header>
-        <h1 className="page-title text-2xl font-extrabold mb-2">Guide to Installing Socio4Health</h1>
-        <p className="page-description text-sm text-gray-600 mb-4">Quick reference for prerequisites and installation methods.</p>
+        <h1 className="page-title text-2xl font-extrabold mb-2">socio4Health</h1>
+        <p>Quick reference guide for prerequisites and installation methods of socio4Health for coders.</p>
       </header>
 
       <div className="page-body text-gray-800">
@@ -22,21 +22,27 @@ export default function Socio4HealthCoder() {
 
         <details className="group mt-4 mb-4 border rounded">
           <summary className="flex items-center justify-between cursor-pointer px-4 py-3 bg-gray-50 hover:bg-gray-100">
-            <h2 className="text-lg font-semibold">Installation Methods</h2>
+            <h2 className="text-lg font-semibold">Installing in Google Colab</h2>
             <span className="text-gray-600">▸</span>
           </summary>
           <div className="p-4">
             <div>
-              <h3 className="mt-2 font-semibold">1. Installing in Google Colab</h3>
-              <p className="mt-2 text-gray-700">Google Colab comes with many libraries pre-installed, but you'll need to install <code className="bg-gray-100 px-1 rounded">socio</code> manually:</p>
+              <p className="mt-2 text-gray-700">Google Colab comes with many libraries pre-installed, but you'll need to install <code className="bg-gray-100 px-1 rounded">socio4health</code> manually:</p>
               <pre className="mt-2 bg-gray-50 border rounded p-3 overflow-x-auto"><code className="language-bash">{`!pip install socio`}</code></pre>
               <p className="mt-2 text-gray-700">After installation, import the library:</p>
               <pre className="mt-2 bg-gray-50 border rounded p-3 overflow-x-auto"><code className="language-python">{`import socio4health
 print(socio4health.__version__)`}</code></pre>
             </div>
+          </div>
+        </details>
 
+        <details className="group mt-4 mb-4 border rounded">
+          <summary className="flex items-center justify-between cursor-pointer px-4 py-3 bg-gray-50 hover:bg-gray-100">
+            <h2 className="text-lg font-semibold">Or Installing in local IDE</h2>
+            <span className="text-gray-600">▸</span>
+          </summary>
+          <div className="p-4">
             <div className="mt-4">
-              <h3 className="font-semibold">2. Installing in local IDE</h3>
               <p className="mt-2 text-gray-700"><strong>Step 1:</strong> Open the integrated terminal</p>
               <p className="mt-2 text-gray-700"><strong>Step 2:</strong> Create and activate a virtual environment (recommended):</p>
               <pre className="mt-2 bg-gray-50 border rounded p-3 overflow-x-auto"><code className="language-bash">{`# Create virtual environment
