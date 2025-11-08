@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
 
 export type OS = 'windows' | 'linux' | 'mac' | null;
 const mac_install_img = '/img/mac_install.png';
@@ -47,7 +48,7 @@ export function WindowsInstallDocker() {
               </li>
             </ol>
             <div className="mt-3">
-              <img src={windows_download_img} alt="Docker download page" style={{ width: 682 }} />
+              <Image src={windows_download_img} alt="Docker download page" width={682} height={420} className="rounded border" />
             </div>
           </li>
 
@@ -60,7 +61,7 @@ export function WindowsInstallDocker() {
           <li>
             Leave the recommended configuration and select ‘OK’.
             <div className="mt-3">
-              <img src={windows_config_img} alt="Docker installer recommended settings" style={{ width: 682 }} />
+              <Image src={windows_config_img} alt="Docker installer recommended settings" width={682} height={420} className="rounded border" />
             </div>
           </li>
 
@@ -93,7 +94,7 @@ export function MacInstallDocker() {
               <li>Click and drag the Docker icon to the Applications folder shortcut.</li>
             </ol>
             <div className="mt-3">
-              <img src={mac_install_img} alt="Docker mac installer" style={{ width: 682 }} />
+              <Image src={mac_install_img} alt="Docker mac installer" width={682} height={420} className="rounded border" />
             </div>
             <p className="mt-2">When prompted select ‘Use recommended settings’.</p>
           </li>
@@ -101,7 +102,7 @@ export function MacInstallDocker() {
           <li className="mt-4">
             Once Docker Desktop is installed, accept the terms and conditions and create an account when redirected.
             <div className="mt-3">
-              <img src={mac_signin_img} alt="Docker sign in" style={{ width: 710 }} />
+              <Image src={mac_signin_img} alt="Docker sign in" width={710} height={440} className="rounded border" />
             </div>
           </li>
 
@@ -212,7 +213,7 @@ export function LinuxInstallDocker({ showDesktop = true }: { showDesktop?: boole
             </a>
           </li>
           <li className="mt-2">
-            Install Docker Engine by following steps 1-3 of the section “Install using the apt repository":
+            Install Docker Engine by following steps 1-3 of the section &quot;Install using the apt repository&quot;:
             <div className="mt-1">
               <a className="text-blue-600 underline" href="https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository">
                 https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository

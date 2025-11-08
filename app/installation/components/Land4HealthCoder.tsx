@@ -39,7 +39,7 @@ export default function Land4HealthCoder() {
           </summary>
           <div className="p-4">
             <p className="mt-2 text-gray-700">Use <code>pak</code> to install the development version from GitHub:</p>
-            <pre className="mt-2 bg-gray-50 border rounded p-3 overflow-x-auto"><code className="language-r">{`# install pak if you don't have it
+              <pre className="mt-2 bg-gray-50 border rounded p-3 overflow-x-auto"><code className="language-r">{`# install pak if you don\'t have it
 install.packages("pak")
 
 # install development version from GitHub
@@ -58,7 +58,7 @@ pak::pak("harmonize-tools/land4health")`}</code></pre>
 
 ee_Initialize(quiet = TRUE)`}</code></pre>
 
-            <p className="mt-2 text-gray-700">You'll see a brief welcome message similar to:</p>
+            <p className="mt-2 text-gray-700">You&apos;ll see a brief welcome message similar to:</p>
             <pre className="mt-2 bg-gray-50 border rounded p-3 overflow-x-auto"><code>{`── Welcome to land4health ────────────────────────────────────────────────────
 A tool of Harmonize Project to calculate and extract Remote Sensing Metrics
 for Spatial Health Analysis. Currently, land4health supports metrics in the
@@ -89,7 +89,7 @@ Attaching core land4health packages:
           </div>
         </details>
 
-        <p className="text-gray-700">You're now ready to use <code>land4health</code> for remote sensing metric extraction in spatial health analysis.</p>
+        <p className="text-gray-700">You&apos;re now ready to use <code>land4health</code> for remote sensing metric extraction in spatial health analysis.</p>
       </div>
     </article>
   );

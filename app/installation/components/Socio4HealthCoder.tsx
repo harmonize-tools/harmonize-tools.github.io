@@ -27,7 +27,7 @@ export default function Socio4HealthCoder() {
           </summary>
           <div className="p-4">
             <div>
-              <p className="mt-2 text-gray-700">Google Colab comes with many libraries pre-installed, but you'll need to install <code className="bg-gray-100 px-1 rounded">socio4health</code> manually:</p>
+              <p className="mt-2 text-gray-700">Google Colab comes with many libraries pre-installed, but you&apos;ll need to install <code className="bg-gray-100 px-1 rounded">socio4health</code> manually:</p>
               <pre className="mt-2 bg-gray-50 border rounded p-3 overflow-x-auto"><code className="language-bash">{`!pip install socio`}</code></pre>
               <p className="mt-2 text-gray-700">After installation, import the library:</p>
               <pre className="mt-2 bg-gray-50 border rounded p-3 overflow-x-auto"><code className="language-python">{`import socio4health
@@ -71,12 +71,12 @@ print(socio4health.__version__)`}</code></pre>
             <ul className="list-disc pl-5 space-y-1 text-gray-800">
               <li>Check out the official <a href="https://harmonize-tools.github.io/socio4health/" target="_blank" rel="noopener noreferrer">package documentation</a></li>
               <li>PyPI package: Find the <a href="https://pypi.org/project/socio4health/" target="_blank" rel="noopener noreferrer">socio4health package on PyPI</a> for installation and version info</li>
-              <li>GitHub repository: browse the project's code and issues at <a href="https://github.com/harmonize-tools/socio4health" target="_blank" rel="noopener noreferrer">harmonize-tools/socio4health</a></li>
+              <li>GitHub repository: browse the project&apos;s code and issues at <a href="https://github.com/harmonize-tools/socio4health" target="_blank" rel="noopener noreferrer">harmonize-tools/socio4health</a></li>
             </ul>
           </div>
         </details>
 
-        <p className="text-gray-700">You're now ready to use the socio4health package!</p>
+        <p className="text-gray-700">You&apos;re now ready to use the socio4health package!</p>
       </div>
     </article>
   );

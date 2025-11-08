@@ -55,7 +55,7 @@ pip3 install --use-pep517 --no-build-isolation --no-cache-dir --force-reinstall 
 							<li>
 								Verify numpy-based raster support has been installed:
 								<pre className="mt-2 bg-gray-50 border rounded p-3 overflow-x-auto"><code className="language-bash">{`python -c "from osgeo import gdal, gdal_array ; print(gdal.__version__)"`}</code></pre>
-								If this raises ImportError, numpy-based raster support wasn't installed correctly — consult the project's issues and GDAL binding docs.
+								If this raises ImportError, numpy-based raster support wasn&apos;t installed correctly — consult the project&apos;s issues and GDAL binding docs.
 							</li>
 						</ol>
 					</div>
@@ -118,7 +118,7 @@ source venv/bin/activate`}</code></pre>
 					</div>
 				</details>
 
-				<p className="mt-4 text-sm text-gray-600">Notes: cube4health depends on native GDAL libraries. If you run into import/build issues, check your system GDAL version, Python version (3.10 recommended for development), and consult the project's GitHub issues for platform-specific fixes.</p>
+				<p className="mt-4 text-sm text-gray-600">Notes: cube4health depends on native GDAL libraries. If you run into import/build issues, check your system GDAL version, Python version (3.10 recommended for development), and consult the project&apos;s GitHub issues for platform-specific fixes.</p>
 			</div>
 		</article>
 	);

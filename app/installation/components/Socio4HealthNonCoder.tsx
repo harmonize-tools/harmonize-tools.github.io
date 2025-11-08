@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function Socio4HealthNonCoder() {
   return (
     <article className="mt-4 rounded-lg bg-white p-6 shadow-sm">
@@ -11,7 +13,7 @@ export default function Socio4HealthNonCoder() {
           <span className="text-gray-600">▸</span>
         </summary>
         <div className="p-4">
-          <p className="text-gray-700">You can try the hosted Streamlit app (remember that the link can be down, for this see the section "Deploy yourself"):</p>
+          <p className="text-gray-700">You can try the hosted Streamlit app (remember that the link can be down, for this see the section &quot;Deploy yourself&quot;):</p>
           <div className="mt-3">
             <a
               href="https://socio4health.streamlit.app/"
@@ -50,10 +52,12 @@ source venv/bin/activate`}</code></pre>
           <p className="mt-3 text-gray-700"><strong>Step 4:</strong> Run the app:</p>
           <pre className="mt-2 bg-gray-50 border rounded p-3 overflow-x-auto"><code className="language-python">{`streamlit run Home.py --server.maxUploadSize=500`}</code></pre>
           <p className="mt-3 text-gray-700">Then open your browser and go to <strong>http://localhost:8501</strong> to access the app.</p>
-          <img
+          <Image
             src="/img/image.png"
             alt="Socio4Health Streamlit App Screenshot"
             className="mt-4 rounded border"
+            width={1200}
+            height={800}
           />
         </div>
       </details>
@@ -65,14 +69,14 @@ source venv/bin/activate`}</code></pre>
         </summary>
         <div className="p-4">
           <ul className="list-disc pl-5 space-y-1 text-gray-800">
-            <li>Official documentation: check the socio library's official docs for API reference</li>
-            <li>GitHub repository: browse the project's code and issues</li>
+            <li>Official documentation: check the socio library&apos;s official docs for API reference</li>
+            <li>GitHub repository: browse the project&apos;s code and issues</li>
             <li>Community support: join relevant forums or Discord channels for help</li>
           </ul>
         </div>
       </details>
 
-      <p className="text-gray-700">You're now ready to try Socio4Health — contact the project maintainers if you need help deploying.</p>
+      <p className="text-gray-700">You&apos;re now ready to try Socio4Health — contact the project maintainers if you need help deploying.</p>
     </article>
   );
 }
