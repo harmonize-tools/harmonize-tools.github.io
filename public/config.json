@@ -1,16 +1,37 @@
 [
   {
+    "name": "data4health",
+    "description": "Facilitate the access, pre-processing, and aggregation of health data at customized spatiotemporal resolutions.",
+    "link": "https://github.com/harmonize-tools/data4health",
+    "src": "cards/toolkits/data4health.svg",
+    "width": "45%"
+  },
+  {
     "name": "clim4health",
-    "description": " ",
-    "link": "clim4health",
+    "description": "Post-processing climate data harmonized to the spatiotemporal aggregation of health data.",
+    "link": "https://github.com/harmonize-tools/clim4health",
     "src": "cards/toolkits/clim4health.svg",
-    "width": "55%"
+    "width": "45%"
+  },
+  {
+    "name": "land4health",
+    "description": "Calculate and extract remote sensing metrics for spatial health analysis to obtain areal or zonal statistics.",
+    "link": "https://github.com/harmonize-tools/land4health",
+    "src": "cards/toolkits/land4health.svg",
+    "width": "45%"
   },
   {
     "name": "socio4health",
-    "description": " ",
-    "link": "socio4health",
+    "description": "Designed to simplify the process of extracting and merging sociodemographic surveys data from different sources.",
+    "link": "https://github.com/harmonize-tools/socio4health",
     "src": "cards/toolkits/socio4health.svg",
-    "width": "55%"
+    "width": "45%"
+  },
+  {
+    "name": "cube4health",
+    "description": "A data acquisition, processing, and publishing toolkit designed to streamline the integration of health, climate, and drone imagery.",
+    "link": "https://github.com/Harmonize-Brazil/cube4health",
+    "src": "cards/toolkits/cube4health.svg",
+    "width": "45%"
   }
 ]

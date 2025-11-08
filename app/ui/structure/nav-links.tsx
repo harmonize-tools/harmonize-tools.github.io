@@ -11,7 +11,8 @@ import {
   DocumentChartBarIcon,
   AcademicCapIcon,
   TrophyIcon,
-  UserGroupIcon
+  UserGroupIcon,
+  ClipboardDocumentCheckIcon
 } from '@heroicons/react/24/outline';
 
 const links = [
@@ -19,6 +20,11 @@ const links = [
     name: 'Toolkits',
     href: '/',
     icon: ListBulletIcon,
+  },
+  {
+    name: 'Installation',
+    href: '/installation',
+    icon: ClipboardDocumentCheckIcon,
   },
   {
     name: 'Tutorials',
