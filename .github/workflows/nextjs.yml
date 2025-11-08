@@ -36,11 +36,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Install Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.12.3' # You can specify the Python version you want to install here
-          persist-credentials: false
       - name: Detect package manager
         id: detect-package-manager
         run: |
@@ -83,38 +78,7 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
-      
-      # Install python dependencies
-      - name: Install Python dependencies
-        run: pip install -r requirements.txt
-      
-      # Execute the utils script for cloning repositories and generate the needed files
-      - name: Execute repositoriesSyncConfigFile.js script
-        run: node utils/repositoriesSyncConfigFile.js
-      - name: Commit files # commit the output folder
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          if [[ $(git status --porcelain) ]]; then
-            git add .
-            git commit -m "Added changes"
-            git push
-          else
-            echo "No changes to commit."
-          fi
-          
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
-      - name: Build with Next.js
-        run: ${{ steps.detect-package-manager.outputs.runner }} next build
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./out
-          
+           
   # Deployment job
   deploy:
     environment:

@@ -40,9 +40,6 @@ interface SubButtonConfig {
   isImage?: boolean;
 }
 
-interface SubButtonsProps {
-  section: Section;
-}
 
 function CircularButton({ icon, label, onClick, isImage = false, isActive = false }: CircularButtonProps) {
   const Icon = icon as React.ElementType; // For when icon is a component
@@ -117,7 +114,8 @@ function SubButtons({ section, onButtonClick, activeInstallType }: SubButtonsPro
     cube4health: [
       { icon: CommandLineIcon, label: 'Coders (Python)', isImage: false }
     ]
-  } as const;
+  };
+  
 
   const buttons = subButtonsConfig[section];
 
