@@ -4,7 +4,7 @@ import path from 'path';
 import ProjectLayout from '@/app/project-layout';
 
 const properties_to_check = ['links', 'licenses', 'citations', 'authors', 'badges'];
-const repository  = 'clim4health';
+const repository  = 'land4health';
 const config_data = require(`../../../public/repositories/${repository}/harmonize_readme/config.json`);
 const path_html   = path.join('repositories', repository, 'harmonize_readme', 'README.html').replace(/\\/g, '/')
 
