@@ -262,11 +262,26 @@ var createMainPageRepositories = async() => {
     if ( repository.includes('4health')) {
 
       let path_aux = path.join(directory_path, repository, 'harmonize_readme', 'config.json')
-      let json_config = [{}]
+      // default to an empty object (expecting config.json to be an object)
+      let json_config = {}
 
-        if (fs.existsSync(path_aux)) {
-          json_config = JSON.parse(fs.readFileSync(path_aux, 'utf8'));
-        } 
+      if (fs.existsSync(path_aux)) {
+        const fileContent = fs.readFileSync(path_aux, 'utf8');
+        try {
+          json_config = JSON.parse(fileContent);
+        } catch (err) {
+          // Try to auto-fix simple trailing-comma issues (e.g. ",]" or ",}") then reparse
+          const cleaned = fileContent.replace(/,\s*(\]|})/g, '$1');
+          try {
+            json_config = JSON.parse(cleaned);
+            console.warn(`Fixed trailing commas in ${path_aux}`);
+          } catch (err2) {
+            console.error(`Failed to parse JSON in ${path_aux}:`, err.message);
+            console.error('Content snippet:', fileContent.slice(0, 200));
+            json_config = {};
+          }
+        }
+      }
 
         if (!json_config.hasOwnProperty('name')) {
           name_data = repository
