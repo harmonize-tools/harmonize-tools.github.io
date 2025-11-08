@@ -52,7 +52,7 @@ export default function Data4HealthCoder({ os }: { os?: OS }) {
 
         <details className="group mt-4 mb-4 border rounded">
           <summary className="flex items-center justify-between cursor-pointer px-4 py-3 bg-gray-50 hover:bg-gray-100">
-            <h2 className="text-lg font-semibold">Running the clim4health docker container</h2>
+            <h2 className="text-lg font-semibold">Running the data4health docker container</h2>
             <span className="text-gray-600">▸</span>
           </summary>
           <div className="p-4">
@@ -78,12 +78,12 @@ export default function Data4HealthCoder({ os }: { os?: OS }) {
 
         <details className="group mt-4 mb-4 border rounded">
           <summary className="flex items-center justify-between cursor-pointer px-4 py-3 bg-gray-50 hover:bg-gray-100">
-            <h2 className="text-lg font-semibold">clim4health instructions</h2>
+            <h2 className="text-lg font-semibold">data4health instructions</h2>
             <span className="text-gray-600">▸</span>
           </summary>
           <div className="p-4">
             <ol className="list-decimal pl-6 mt-2 space-y-2">
-              <li>Click into the ‘clim4health_tutorial’ folder in the bottom-right of the page, and you should see tutorial files labelled 00_install_clim4health.Rmd, etc.</li>
+              <li>Click into the ‘data4health_tutorial’ folder in the bottom-right of the page, and you should see tutorial files labelled 00_install_data4health.Rmd, etc.</li>
               <li>
                 For this training session, please follow <strong>full_example_workflow.Rmd</strong>.
                 <ol className="list-lower-alpha pl-6 mt-2">

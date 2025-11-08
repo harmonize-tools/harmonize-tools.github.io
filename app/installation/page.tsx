@@ -102,8 +102,7 @@ interface SubButtonsProps {
 function SubButtons({ section, onButtonClick, activeInstallType }: SubButtonsProps) {
   const subButtonsConfig: Record<Section, SubButtonConfig[]> = {
     data4health: [
-      { icon: CommandLineIcon, label: 'Coders (R)', isImage: false },
-      { icon: WindowIcon, label: 'Non-coders', isImage: false }
+      { icon: CommandLineIcon, label: 'Coders (R)', isImage: false }
     ],
     clim4health: [
       { icon: CommandLineIcon, label: 'Coders (R)', isImage: false }

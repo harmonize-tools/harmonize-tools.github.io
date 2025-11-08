@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
 export type OS = 'windows' | 'linux' | 'mac' | null;
-const mac_install_img = '/repositories/clim4health/mac_install.png';
-const mac_signin_img = '/repositories/clim4health/mac_signin.png';
-const windows_config_img = '/repositories/clim4health/windows_config.png';
-const windows_download_img = '/repositories/clim4health/windows_download.png';
+const mac_install_img = '/img/mac_install.png';
+const mac_signin_img = '/img/mac_signin.png';
+const windows_config_img = '/img/windows_config.png';
+const windows_download_img = '/img/windows_download.png';
 
 export function OsTabs({ defaultOs, panels }: { defaultOs?: OS; panels: Record<Exclude<OS, null>, React.ReactNode> }) {
   const [active, setActive] = useState<Exclude<OS, null>>(defaultOs ?? 'linux');
