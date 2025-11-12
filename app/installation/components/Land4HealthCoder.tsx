@@ -56,7 +56,12 @@ pak::pak("harmonize-tools/land4health")`}</code></pre>
             <p className="mt-2 text-gray-700">After installation, load the package and initialize Earth Engine:</p>
             <pre className="mt-2 bg-gray-50 border rounded p-3 overflow-x-auto"><code className="language-r">{`library(land4health)
 
-ee_Initialize(quiet = TRUE)`}</code></pre>
+l4h_install()
+#> Using virtual environment "r-land4health" ...`}</code></pre>
+
+<pre className="mt-2 bg-gray-50 border rounded p-3 overflow-x-auto"><code className="language-r">{`l4h_use_python()
+
+rgee::ee_Initialize(quiet = TRUE)`}</code></pre>
 
             <p className="mt-2 text-gray-700">You&apos;ll see a brief welcome message similar to:</p>
             <pre className="mt-2 bg-gray-50 border rounded p-3 overflow-x-auto"><code>{`── Welcome to land4health ────────────────────────────────────────────────────
