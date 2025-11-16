@@ -29,8 +29,8 @@ const links = [
     icon: AcademicCapIcon,
   },
   {
-    name: 'Trainnings',
-    href: '',
+    name: 'Trainings',
+    href: '/trainings',
     icon: TrophyIcon,
   },
   {
@@ -52,8 +52,7 @@ const links = [
 
 export default function NavLinks() {
   const pathname = usePathname();
-  // Only render links that have a non-empty href (hide under-development links)
-
+  
   return (
     <>
       {links
