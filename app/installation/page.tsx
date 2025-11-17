@@ -7,6 +7,7 @@ import {
 } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import { useState } from 'react';
+import CircularButton from '../ui/components/circular-button';
 
 import Data4HealthCoder from './components/Data4HealthCoder';
 import Data4HealthNonCoder from './components/Data4HealthNonCoder';
@@ -41,54 +42,7 @@ interface SubButtonConfig {
 }
 
 
-function CircularButton({ icon, label, onClick, isImage = false, isActive = false }: CircularButtonProps) {
-  const Icon = icon as React.ElementType; // For when icon is a component
-  return (
-    <div className="flex flex-col items-center space-y-2 group">
-      <div
-        role="button"
-        tabIndex={0}
-        onClick={onClick}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            onClick();
-          }
-        }}
-        className={`cursor-pointer transform transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-lg rounded-full p-4 w-24 h-24 flex items-center justify-center
-          ${isActive 
-            ? 'bg-purple-100 shadow-lg scale-105 rotate-3' 
-            : 'hover:bg-purple-50 hover:rotate-3'}`}
-      >
-        {isImage ? (
-          <Image 
-            src={icon as string} 
-            alt={label}
-            width={80}
-            height={80}
-            className={`text-current transform transition-transform duration-300 
-              ${isActive ? '-rotate-3' : 'group-hover:-rotate-3'}`}
-          />
-        ) : (
-          // allow passing a simple string (emoji) as icon
-          typeof icon === 'string' ? (
-            <span className={`text-2xl transition-all duration-300 ${isActive ? 'text-purple-700' : 'text-dark-purple group-hover:text-purple-700'}`}>
-              {icon}
-            </span>
-          ) : (
-            <Icon className={`h-12 w-12 transition-all duration-300 
-              ${isActive ? 'text-purple-700' : 'text-dark-purple group-hover:text-purple-700'}`} 
-            />
-          )
-        )}
-      </div>
-      <span className={`text-sm font-medium transition-all duration-300 
-        ${isActive ? 'text-purple-700' : 'group-hover:text-purple-700'}`}>
-        {label}
-      </span>
-    </div>
-  );
-}
+// CircularButton is now a shared component in app/ui/components/circular-button.tsx
 
 interface SubButtonsProps {
   section: Section;
@@ -184,6 +138,14 @@ function InstallationContent({ section, type }: InstallationContentProps) {
 export default function Page() {
   const [activeSection, setActiveSection] = useState<Section | null>(null);
   const [activeInstallType, setActiveInstallType] = useState<'coder' | 'noncoder' | null>(null);
+  // Toggle buttons by editing this map in code. Set true to disable, false to enable.
+  const disabledMap: Record<Section, boolean> = {
+    data4health: false,
+    clim4health: false,
+    land4health: false,
+    socio4health: false,
+    cube4health: false,
+  };
 
   const handleToolkitClick = (section: Section) => {
     if (section === activeSection) {
@@ -207,41 +169,27 @@ export default function Page() {
       </p>
       
       <div className="mb-8 mt-6 flex flex-wrap justify-center gap-8">
-        <CircularButton
-          icon={D4H_LOGO}
-          label="data4Health"
-          onClick={() => handleToolkitClick('data4health')}
-          isImage={true}
-          isActive={activeSection === 'data4health'}
-        />
-        <CircularButton
-          icon={C4H_LOGO}
-          label="clim4health"
-          onClick={() => handleToolkitClick('clim4health')}
-          isImage={true}
-          isActive={activeSection === 'clim4health'}
-        />
-        <CircularButton
-          icon={L4H_LOGO}
-          label="land4health"
-          onClick={() => handleToolkitClick('land4health')}
-          isImage={true}
-          isActive={activeSection === 'land4health'}
-        />
-        <CircularButton
-          icon={S4H_LOGO}
-          label="socio4health"
-          onClick={() => handleToolkitClick('socio4health')}
-          isImage={true}
-          isActive={activeSection === 'socio4health'}
-        />
-        <CircularButton
-          icon={CU4H_LOGO}
-          label="cube4health"
-          onClick={() => handleToolkitClick('cube4health')}
-          isImage={true}
-          isActive={false}
-        />
+        {[
+          { key: 'data4health', logo: D4H_LOGO, label: 'data4Health' },
+          { key: 'clim4health', logo: C4H_LOGO, label: 'clim4health' },
+          { key: 'land4health', logo: L4H_LOGO, label: 'land4health' },
+          { key: 'socio4health', logo: S4H_LOGO, label: 'socio4health' },
+          { key: 'cube4health', logo: CU4H_LOGO, label: 'cube4health' },
+        ].map((tk) => {
+          const section = tk.key as Section;
+          return (
+            <div key={tk.key} className="flex flex-col items-center">
+              <CircularButton
+                icon={tk.logo}
+                label={tk.label}
+                onClick={() => handleToolkitClick(section)}
+                isImage={true}
+                isActive={activeSection === section}
+                disabled={disabledMap[section]}
+              />
+            </div>
+          );
+        })}
       </div>
 
       {activeSection && (
