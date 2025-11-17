@@ -88,9 +88,9 @@ function SubButtons({ section }: { section: Section }) {
       {entry.related && entry.related.length > 0 && (
         <div className="mt-6">
           <h3 className="text-lg font-medium">References</h3>
-          <ul className="mt-3 list-disc list-inside">
+          <div className="mt-3 space-y-3">
             {entry.related.map((r, i) => (
-              <li key={i} className="my-2">
+              <div key={i} className="my-0">
                 {r.useButton && r.isFile ? (
                   <DownloadButton href={r.href} label={r.label} />
                 ) : (
@@ -98,15 +98,15 @@ function SubButtons({ section }: { section: Section }) {
                     href={r.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-purple-700 hover:underline"
+                    className="text-purple-700 hover:underline block"
                     {...(r.isFile ? { download: '' } : {})}
                   >
                     {r.label}
                   </a>
                 )}
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       )}
     </article>
