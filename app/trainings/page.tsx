@@ -26,7 +26,7 @@ interface CircularButtonProps {
 
 
 function SubButtons({ section }: { section: Section }) {
-  const resources: Record<Section, { pdf?: string; related: Array<{ label: string; href: string; isFile?: boolean }> }> = {
+  const resources: Record<Section, { pdf?: string; related?: Array<{ label: string; href: string; isFile?: boolean; useButton?: boolean }> }> = {
     data4health: {
       pdf: '/training/data4health-training.pdf',
       related: [
@@ -85,28 +85,30 @@ function SubButtons({ section }: { section: Section }) {
         <p className="mt-4 text-sm text-gray-500">No PDF guide available for this toolkit.</p>
       )}
 
-      <div className="mt-6">
-        <h3 className="text-lg font-medium">Related materials</h3>
-        <ul className="mt-3 list-disc list-inside">
-          {entry.related.map((r, i) => (
-            <li key={i} className="my-2">
-              {r.useButton && r.isFile ? (
-                <DownloadButton href={r.href} label={r.label} />
-              ) : (
-                <a
-                  href={r.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-purple-700 hover:underline"
-                  {...(r.isFile ? { download: '' } : {})}
-                >
-                  {r.label}
-                </a>
-              )}
-            </li>
-          ))}
-        </ul>
-      </div>
+      {entry.related && entry.related.length > 0 && (
+        <div className="mt-6">
+          <h3 className="text-lg font-medium">References</h3>
+          <ul className="mt-3 list-disc list-inside">
+            {entry.related.map((r, i) => (
+              <li key={i} className="my-2">
+                {r.useButton && r.isFile ? (
+                  <DownloadButton href={r.href} label={r.label} />
+                ) : (
+                  <a
+                    href={r.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-purple-700 hover:underline"
+                    {...(r.isFile ? { download: '' } : {})}
+                  >
+                    {r.label}
+                  </a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </article>
   );
 }
