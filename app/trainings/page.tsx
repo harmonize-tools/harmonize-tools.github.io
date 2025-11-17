@@ -67,8 +67,6 @@ function SubButtons({ section }: { section: Section }) {
 
   return (
     <article className="prose mx-auto mt-8 w-full max-w-4xl">
-      <h2 className="text-2xl font-semibold">Installation & resources</h2>
-      <p className="text-gray-600">Embedded installation guide and related materials for <strong>{section}</strong>.</p>
 
       {entry?.pdf ? (
         <div className="mt-6 border rounded overflow-hidden" style={{ height: 720 }}>
@@ -116,6 +114,14 @@ function SubButtons({ section }: { section: Section }) {
 
 export default function Page() {
   const [activeSection, setActiveSection] = useState<Section | null>(null);
+  // Toggle buttons by editing this map in code. Set true to disable, false to enable.
+  const disabledMap: Record<Section, boolean> = {
+    data4health: false,
+    clim4health: true,
+    land4health: true,
+    socio4health: true,
+    cube4health: true,
+  };
 
   const handleToolkitClick = (section: Section) => {
     if (section === activeSection) {
@@ -127,48 +133,33 @@ export default function Page() {
 
   return (
     <div className="container mx-auto px-4">
-      <h1 className="mb-2 mt-6 text-3xl font-semibold md:mt-0">Installation</h1>
+      <h1 className="mb-2 mt-6 text-3xl font-semibold md:mt-0">Trainings</h1>
       <p className="text-justify text-l text-gray-500">
-        Before using our toolkits, ensure you have the necessary software and packages installed.
-        Select a toolkit below to view the installation guide and related materials.
+        This section contains the workshop development support materials.
       </p>
       
       <div className="mb-8 mt-6 flex flex-wrap justify-center gap-8">
-        <CircularButton
-          icon={D4H_LOGO}
-          label="data4Health"
-          onClick={() => handleToolkitClick('data4health')}
-          isImage={true}
-          isActive={activeSection === 'data4health'}
-        />
-        <CircularButton
-          icon={C4H_LOGO}
-          label="clim4health"
-          onClick={() => handleToolkitClick('clim4health')}
-          isImage={true}
-          isActive={activeSection === 'clim4health'}
-        />
-        <CircularButton
-          icon={L4H_LOGO}
-          label="land4health"
-          onClick={() => handleToolkitClick('land4health')}
-          isImage={true}
-          isActive={activeSection === 'land4health'}
-        />
-        <CircularButton
-          icon={S4H_LOGO}
-          label="socio4health"
-          onClick={() => handleToolkitClick('socio4health')}
-          isImage={true}
-          isActive={activeSection === 'socio4health'}
-        />
-        <CircularButton
-          icon={CU4H_LOGO}
-          label="cube4health"
-          onClick={() => handleToolkitClick('cube4health')}
-          isImage={true}
-          isActive={activeSection === 'cube4health'}
-        />
+        {[
+          { key: 'data4health', logo: D4H_LOGO, label: 'data4Health' },
+          { key: 'clim4health', logo: C4H_LOGO, label: 'clim4health' },
+          { key: 'land4health', logo: L4H_LOGO, label: 'land4health' },
+          { key: 'socio4health', logo: S4H_LOGO, label: 'socio4health' },
+          { key: 'cube4health', logo: CU4H_LOGO, label: 'cube4health' },
+        ].map((tk) => {
+          const section = tk.key as Section;
+          return (
+            <div key={tk.key} className="flex flex-col items-center">
+              <CircularButton
+                icon={tk.logo}
+                label={tk.label}
+                onClick={() => handleToolkitClick(section)}
+                isImage={true}
+                isActive={activeSection === section}
+                disabled={disabledMap[section]}
+              />
+            </div>
+          );
+        })}
       </div>
 
       {activeSection && (

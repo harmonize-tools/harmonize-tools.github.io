@@ -138,6 +138,14 @@ function InstallationContent({ section, type }: InstallationContentProps) {
 export default function Page() {
   const [activeSection, setActiveSection] = useState<Section | null>(null);
   const [activeInstallType, setActiveInstallType] = useState<'coder' | 'noncoder' | null>(null);
+  // Toggle buttons by editing this map in code. Set true to disable, false to enable.
+  const disabledMap: Record<Section, boolean> = {
+    data4health: false,
+    clim4health: false,
+    land4health: false,
+    socio4health: false,
+    cube4health: false,
+  };
 
   const handleToolkitClick = (section: Section) => {
     if (section === activeSection) {
@@ -161,41 +169,27 @@ export default function Page() {
       </p>
       
       <div className="mb-8 mt-6 flex flex-wrap justify-center gap-8">
-        <CircularButton
-          icon={D4H_LOGO}
-          label="data4Health"
-          onClick={() => handleToolkitClick('data4health')}
-          isImage={true}
-          isActive={activeSection === 'data4health'}
-        />
-        <CircularButton
-          icon={C4H_LOGO}
-          label="clim4health"
-          onClick={() => handleToolkitClick('clim4health')}
-          isImage={true}
-          isActive={activeSection === 'clim4health'}
-        />
-        <CircularButton
-          icon={L4H_LOGO}
-          label="land4health"
-          onClick={() => handleToolkitClick('land4health')}
-          isImage={true}
-          isActive={activeSection === 'land4health'}
-        />
-        <CircularButton
-          icon={S4H_LOGO}
-          label="socio4health"
-          onClick={() => handleToolkitClick('socio4health')}
-          isImage={true}
-          isActive={activeSection === 'socio4health'}
-        />
-        <CircularButton
-          icon={CU4H_LOGO}
-          label="cube4health"
-          onClick={() => handleToolkitClick('cube4health')}
-          isImage={true}
-          isActive={false}
-        />
+        {[
+          { key: 'data4health', logo: D4H_LOGO, label: 'data4Health' },
+          { key: 'clim4health', logo: C4H_LOGO, label: 'clim4health' },
+          { key: 'land4health', logo: L4H_LOGO, label: 'land4health' },
+          { key: 'socio4health', logo: S4H_LOGO, label: 'socio4health' },
+          { key: 'cube4health', logo: CU4H_LOGO, label: 'cube4health' },
+        ].map((tk) => {
+          const section = tk.key as Section;
+          return (
+            <div key={tk.key} className="flex flex-col items-center">
+              <CircularButton
+                icon={tk.logo}
+                label={tk.label}
+                onClick={() => handleToolkitClick(section)}
+                isImage={true}
+                isActive={activeSection === section}
+                disabled={disabledMap[section]}
+              />
+            </div>
+          );
+        })}
       </div>
 
       {activeSection && (
