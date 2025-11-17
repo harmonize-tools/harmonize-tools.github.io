@@ -12,5 +12,12 @@
       "link": "https://healthinnovation.github.io/harmonize/",
       "src": "cards/related_products/innovalab.png",
       "width": "55%"
+    },
+    {
+      "name": "Global Health Resilience",
+      "description": "GHRtools workshop materials for spatiotemporal exploratory analysis and Bayesian modelling of health data developed at the Barcelona Supercomputing Center within the IDExtremes project.",
+      "link": "https://gitlab.earth.bsc.es/ghr/ghrtools-workshop",
+      "src": "cards/related_products/logo_IDExtremes2.jpg",
+      "width": "55%"
     }
   ]
