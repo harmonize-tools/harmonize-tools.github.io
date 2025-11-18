@@ -41,10 +41,10 @@ function SubButtons({ section }: { section: Section }) {
       ],
     },
     land4health: {
-      pdf: '/cards/toolkits/land4health-installation.pdf',
+      pdf: '/training/l4h_workshop.pdf',
       related: [
-        { label: 'Land4Health dataset', href: '/cards/toolkits/land4health-dataset.zip', isFile: true },
-        { label: 'Documentation', href: 'https://example.org/land4health' },
+        //{ label: 'Land4Health presentation', href: '/training/l4h_workshop.pdf', isFile: true },
+        //{ label: 'Documentation', href: 'https://example.org/land4health' },
       ],
     },
     socio4health: {
@@ -118,7 +118,7 @@ export default function Page() {
   const disabledMap: Record<Section, boolean> = {
     data4health: false,
     clim4health: false,
-    land4health: true,
+    land4health: false,
     socio4health: true,
     cube4health: true,
   };
