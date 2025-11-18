@@ -117,7 +117,7 @@ export default function Page() {
   // Toggle buttons by editing this map in code. Set true to disable, false to enable.
   const disabledMap: Record<Section, boolean> = {
     data4health: false,
-    clim4health: true,
+    clim4health: false,
     land4health: true,
     socio4health: true,
     cube4health: true,
