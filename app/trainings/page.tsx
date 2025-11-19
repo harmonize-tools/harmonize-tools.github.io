@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import CircularButton from '../ui/components/circular-button';
 import DownloadButton from '../ui/components/download-button';
+import LinkButton from '../ui/components/link-button';
 
 const D4H_LOGO = '/cards/toolkits/data4health.svg';
 const C4H_LOGO = '/cards/toolkits/clim4health.svg';
@@ -30,8 +31,7 @@ function SubButtons({ section }: { section: Section }) {
     data4health: {
       pdf: '/training/data4health-training.pdf',
       related: [
-        //{ label: 'Quickstart (download)', href: '/cards/toolkits/data4health-quickstart.zip', isFile: true },
-        //{ label: 'Online docs', href: 'https://example.org/data4health' },
+        { label: 'Data drive', href: 'https://bit.ly/3WZp0dG', useButton: true, isFile: false },
       ],
     },
     clim4health: {
@@ -48,10 +48,9 @@ function SubButtons({ section }: { section: Section }) {
       ],
     },
     socio4health: {
-      pdf: '/cards/toolkits/socio4health-installation.pdf',
+      pdf: '/training/funciones-social4health.pdf',
       related: [
-        { label: 'Socio4Health notes (download)', href: '/cards/toolkits/socio4health-notes.pdf', isFile: true },
-        { label: 'Website', href: 'https://example.org/socio4health' },
+        { label: 'Data drive', href: 'https://bit.ly/3WZp0dG', useButton: true, isFile: false },
       ],
     },
     cube4health: {
@@ -89,8 +88,12 @@ function SubButtons({ section }: { section: Section }) {
           <div className="mt-3 space-y-3">
             {entry.related.map((r, i) => (
               <div key={i} className="my-0">
-                {r.useButton && r.isFile ? (
-                  <DownloadButton href={r.href} label={r.label} />
+                {r.useButton ? (
+                  r.isFile ? (
+                    <DownloadButton href={r.href} label={r.label} />
+                  ) : (
+                    <LinkButton href={r.href} label={r.label} />
+                  )
                 ) : (
                   <a
                     href={r.href}
@@ -119,7 +122,7 @@ export default function Page() {
     data4health: false,
     clim4health: false,
     land4health: false,
-    socio4health: true,
+    socio4health: false,
     cube4health: true,
   };
 

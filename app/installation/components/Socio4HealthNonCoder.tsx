@@ -62,20 +62,6 @@ source venv/bin/activate`}</code></pre>
         </div>
       </details>
 
-      <details className="group mt-4 mb-4 border rounded">
-        <summary className="flex items-center justify-between cursor-pointer px-4 py-3 bg-gray-50 hover:bg-gray-100">
-          <h2 className="text-lg font-semibold">Additional Resources</h2>
-          <span className="text-gray-600">▸</span>
-        </summary>
-        <div className="p-4">
-          <ul className="list-disc pl-5 space-y-1 text-gray-800">
-            <li>Official documentation: check the socio library&apos;s official docs for API reference</li>
-            <li>GitHub repository: browse the project&apos;s code and issues</li>
-            <li>Community support: join relevant forums or Discord channels for help</li>
-          </ul>
-        </div>
-      </details>
-
       <p className="text-gray-700">You&apos;re now ready to try Socio4Health — contact the project maintainers if you need help deploying.</p>
     </article>
   );
